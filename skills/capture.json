@@ -1,0 +1,11 @@
+{
+  "id": "capture",
+  "title": "Understand a note",
+  "description": "Turns one free-form note from anyone in the care circle into structured observations, medication changes, tasks, routines, appointments and facts worth remembering.",
+  "tier": "fast",
+  "output": "capture",
+  "builtin": true,
+  "hidden": true,
+  "context": { "days": 3, "include": ["memory", "routines"] },
+  "instructions": "Read the NEW NOTE and extract only what it actually says. Do not infer diagnoses. Use the exact words of the note for observations where possible. Categories: mobility, sleep, appetite, mood, pain, medication, cognition, hygiene, social, other. Severity: 0 = fine/positive, 1 = minor, 2 = notable, 3 = worrying. A medication change is only 'started', 'stopped' or 'dose_changed' when the note says so; a dose given or forgotten is 'taken' or 'missed'. A routine is something that should repeat (e.g. 'eye drops every evening at 21:00'); a task is a one-off to-do ('book the podiatrist'). Dates must be ISO (YYYY-MM-DD) resolved against TODAY; use null when unknown. Assign tasks or routines only to a person token who is named or clearly implied. 'memory' holds durable facts worth remembering for months (preferences, allergies, the name of a place, how she likes things done) - not the events of the day. Do not repeat facts already in KNOWN FACTS. Keep every person token like [P1] exactly as written."
+}

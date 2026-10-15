@@ -1,0 +1,11 @@
+node_modules/
+.research/
+data/
+.env
+*.log
+design/gen/
+video/work/
+video/hyperframes/renders/
+video/hyperframes/node_modules/
+evidence/raw/
+.DS_Store

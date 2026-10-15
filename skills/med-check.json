@@ -1,0 +1,11 @@
+{
+  "id": "med-check",
+  "title": "Medication change check",
+  "description": "After a medication starts or changes, lines up what the family has observed since, against reference information about that medication, so the right question reaches the GP or pharmacist.",
+  "tier": "deep",
+  "output": "brief",
+  "builtin": true,
+  "tool": "reference-lookup",
+  "context": { "days": 21, "include": ["notes", "observations", "medications", "memory"] },
+  "instructions": "Focus on the most recent medication that was started or changed. Sections: 'What changed' (medication, date, change), 'Observed since then' (each observation with its date and days after the change), 'What the reference sources say' (only from the REFERENCE SNIPPETS, cite them by their S-id; if there are none, say that no reference was available and do not use your own knowledge), 'Worth raising'. Questions go to the GP or pharmacist. Never say a symptom IS caused by the medication; say it started after it, and that this is worth asking about. Never suggest stopping or changing a dose."
+}

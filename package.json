@@ -1,0 +1,17 @@
+{
+  "name": "hearthnote",
+  "version": "1.0.0",
+  "description": "Hearthnote: a private care-circle companion that turns everyday notes about someone you look after into routines, reminders and weekly briefs, powered by NVIDIA Nemotron on Nebius Token Factory.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Rui Codex",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server/main.js",
+    "dev": "node --watch server/main.js",
+    "test": "node --test test/*.test.js",
+    "secret-scan": "node scripts/secret-scan.mjs",
+    "live-check": "node scripts/live-check.mjs"
+  }
+}

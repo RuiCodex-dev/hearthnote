@@ -1,0 +1,11 @@
+{
+  "id": "weekly-digest",
+  "title": "Weekly family brief",
+  "description": "A calm, cited summary of the past week for everyone in the care circle: what went well, what changed, what to keep an eye on, and who does what next.",
+  "tier": "deep",
+  "output": "brief",
+  "builtin": true,
+  "schedule": "weekly",
+  "context": { "days": 7, "include": ["notes", "observations", "medications", "memory", "routines", "appointments", "tasks"] },
+  "instructions": "Write the weekly brief for the care circle. Sections, in this order: 'This week at a glance' (3-5 items, include what went well), 'Changes worth noticing' (patterns across several days, e.g. a symptom that started after a medication change, sleep or appetite trends - compare dates carefully and say how many notes support a pattern), 'Keep an eye on' (items flagged 'watch'), 'Who does what next'. Put clinical questions in 'questions' phrased as questions for the GP or nurse, never as advice. Every item must cite the note ids it is based on. Never diagnose, never suggest changing a dose; when something might be medication-related, say it is worth asking the GP or pharmacist. Warm, plain language; no exclamation marks."
+}

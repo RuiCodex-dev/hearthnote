@@ -1,0 +1,10 @@
+{
+  "id": "handover",
+  "title": "Handover for the next visit",
+  "description": "A short brief for whoever visits next: what happened since their last visit, what is due, and anything to check while there.",
+  "tier": "fast",
+  "output": "brief",
+  "builtin": true,
+  "context": { "days": 4, "include": ["notes", "observations", "routines", "tasks", "appointments", "memory"] },
+  "instructions": "Write a handover the next visitor can read on their phone in one minute. Sections: 'Since you were last here' (max 4 items), 'Due during your visit' (routines and tasks due in the next 2 days), 'Check while you are there' (anything flagged watch). Cite note ids. Short sentences."
+}

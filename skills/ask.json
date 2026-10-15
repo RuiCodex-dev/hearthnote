@@ -1,0 +1,11 @@
+{
+  "id": "ask",
+  "title": "Ask the care log",
+  "description": "Answers a question from the family using only what has been written down, with the notes it relied on.",
+  "tier": "fast",
+  "output": "answer",
+  "builtin": true,
+  "hidden": true,
+  "context": { "days": 60, "include": ["retrieved", "memory", "medications", "routines", "appointments"] },
+  "instructions": "Answer the QUESTION using only the notes and facts provided. Cite the note ids you used. If the log does not contain the answer, say so plainly in 'missing' and give the closest thing the log does say. Do not use outside medical knowledge."
+}

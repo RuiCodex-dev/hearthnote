@@ -1,0 +1,10 @@
+{
+  "id": "visit-prep",
+  "title": "Prepare a doctor's visit",
+  "description": "A one-page brief to bring to the GP or specialist: current medications and recent changes, symptoms with dates, and the questions the family wants answered.",
+  "tier": "deep",
+  "output": "brief",
+  "builtin": true,
+  "context": { "days": 21, "include": ["notes", "observations", "medications", "memory", "appointments"] },
+  "instructions": "Prepare a brief the family can hand to a clinician in under two minutes of reading. Sections: 'Medications and recent changes' (name, what changed and when), 'Symptoms and observations since the last visit' (each with first date, how often it was noted, and any timing relation to a medication change), 'Daily functioning' (mobility, sleep, appetite, mood), 'What the family has already tried'. Then 'questions': 3-6 specific questions the family should ask. Cite note ids on every item. Do not interpret, diagnose or recommend treatment."
+}

@@ -1,0 +1,24 @@
+{
+  "_note": "Fictional household used by the public demo. All people, places and numbers are invented.",
+  "recipient": { "name": "Mireille", "role": "mum, 81, lives alone in Leuven, uses a walker" },
+  "members": [
+    { "name": "Anouk", "role": "daughter, lives nearby, visits most weekdays" },
+    { "name": "Bram", "role": "son, lives in Ghent, visits at weekends" },
+    { "name": "Sofie", "role": "home nurse, morning and evening rounds" }
+  ],
+  "privateTerms": ["Vaartstraat 12", "Claes", "Peeters"],
+  "notes": [
+    { "day": -13, "time": "09:10", "by": "Anouk", "text": "Mum had a good morning. She walked to the bakery with her walker and back, about 15 minutes. Ate all her soup at lunch. She likes her coffee with warm milk, never cold." },
+    { "day": -12, "time": "19:40", "by": "Sofie", "text": "Evening round. New eye drops for the left eye every evening at 21:00 for the next month, prescribed by Dr. Claes. Blood pressure 162/94, higher than usual." },
+    { "day": -11, "time": "18:20", "by": "Bram", "text": "Phoned Mum. She sounded cheerful and told me about the neighbour's new dog. She forgot she had already told me the same story on Sunday." },
+    { "day": -10, "time": "10:05", "by": "Anouk", "text": "Dr. Claes started amlodipine 5 mg once a day in the morning for her blood pressure. First dose today with breakfast. I need to pick up the second box from the pharmacy on Friday." },
+    { "day": -9, "time": "08:50", "by": "Sofie", "text": "Morning round. Took amlodipine with breakfast. Showered with help, skin fine. She mentioned her ankles feel a bit puffy." },
+    { "day": -8, "time": "16:30", "by": "Anouk", "text": "She felt dizzy getting up from the armchair after lunch. Sat down again and it passed after a minute. Did not want to walk to the bakery today." },
+    { "day": -7, "time": "11:00", "by": "Bram", "text": "Weekend visit. Fixed the loose rug in the hallway. Mum was a bit unsteady on the stairs and held the rail with both hands. Slept badly, up twice in the night." },
+    { "day": -6, "time": "09:30", "by": "Sofie", "text": "Ankles swollen yesterday evening, better this morning. Dizzy again when standing up quickly, so I told her to stand up slowly. Physio exercises every Monday and Thursday at 10:00, Anouk helps." },
+    { "day": -4, "time": "17:45", "by": "Anouk", "text": "Lovely afternoon, we sorted old photos and she laughed a lot. Ate well. Still says the room spins a little when she gets up. Remember to ask the GP about the dizziness." },
+    { "day": -3, "time": "20:15", "by": "Sofie", "text": "Blood pressure 138/84. Eye drops done. She is allergic to penicillin - make sure that is on her file at the new pharmacy." },
+    { "day": -1, "time": "10:20", "by": "Bram", "text": "Called the practice: GP appointment with Dr. Claes next Tuesday at 10:30. Anouk will take her. Taxi picks her up at Vaartstraat 12 at 10:00. Practice number is 016 23 45 67." },
+    { "day": 0, "time": "08:40", "by": "Anouk", "text": "Short visit before work. She slept better. Ankles a bit puffy again. Took her amlodipine. She wants to go to the market on Saturday with Bram." }
+  ]
+}
