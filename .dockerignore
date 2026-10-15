@@ -1,0 +1,12 @@
+.git
+.research
+data
+design
+docs
+evidence
+video
+test
+scripts
+node_modules
+*.md
+.env

@@ -230,14 +230,15 @@ textarea:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 3px
 .dialog { border: 1px solid var(--rule); border-radius: 18px; background: var(--paper); color: var(--ink); padding: 26px; width: min(720px, 94vw); box-shadow: var(--lift); }
 .dialog::backdrop { background: rgba(22, 28, 31, .45); }
 .dialog h2 { font-size: 26px; margin-bottom: 8px; }
-.dialog label { display: block; font-weight: 600; font-size: 14px; margin: 14px 0 6px; }
-.dialog input, .dialog select { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--rule); background: var(--linen); }
+.dialog-like label, .dialog label { display: block; font-weight: 600; font-size: 14px; margin: 14px 0 6px; }
+.dialog-like input, .dialog input, .dialog select { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--rule); background: var(--linen); }
 .dialog textarea { min-height: 110px; font: 16px/1.5 var(--sans); }
-.dialog .row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 18px; }
+.dialog-like .row, .dialog .row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 18px; }
 .toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); opacity: 0; background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-size: 14.5px; transition: all .22s var(--ease); pointer-events: none; z-index: 20; max-width: 90vw; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
 .tabbar { display: none; }
+body[data-setup="1"] .composer-col, body[data-setup="1"] .tabbar { visibility: hidden; }
 
 /* Responsive */
 @media (max-width: 1240px) {

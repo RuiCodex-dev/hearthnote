@@ -71,6 +71,7 @@ function renderChrome() {
   document.body.dataset.view = view;
   document.querySelectorAll("[data-view]").forEach((a) => (a.dataset.view === view ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current")));
   if (!S) return;
+  document.body.dataset.setup = S.recipient.name ? "0" : "1";
   const r = S.recipient;
   $("#circle-card").innerHTML = `<div class="eyebrow">Caring for</div><div class="who-for">${esc(r.name || "Someone")}</div><div class="role">${esc(r.role)}</div><div class="avatars">${S.members.map((m) => `<span title="${esc(m.name)} - ${esc(m.role)}">${avatar(m.id)}</span>`).join("")}</div>`;
   const pending = S.memory.filter((m) => m.status === "proposed").length + S.routines.filter((x) => x.status === "proposed").length;
@@ -99,7 +100,21 @@ function renderWho() {
 }
 
 // ---------- views ----------
+function viewSetup() {
+  return `<p class="eyebrow">First things first</p><h1 class="page-title">Who are you <em>caring for?</em></h1>
+    <p class="lede">Names stay on this server. The model only ever sees [P1], [P2] and the roles you write here.</p>
+    <div class="banner-img"><img src="/assets/img/visit.webp" alt="" width="1190" height="886"></div>
+    <form id="setup-form" class="card dialog-like">
+      <label for="s-name">Their first name</label><input id="s-name" name="name" maxlength="60" required placeholder="Josephine">
+      <label for="s-role">A few words about them</label><input id="s-role" name="role" maxlength="80" placeholder="grandmother, 86, lives at home in Ghent">
+      <label for="s-me">Your first name</label><input id="s-me" name="me" maxlength="60" required placeholder="Lotte">
+      <label for="s-myrole">Your role</label><input id="s-myrole" name="myrole" maxlength="80" placeholder="granddaughter, visits on Wednesdays">
+      <div class="row"><button class="btn primary" type="submit">Start the notebook</button></div>
+    </form>`;
+}
+
 function viewToday() {
+  if (!S.recipient.name) return viewSetup();
   const now = new Date();
   const weekday = fmt(now.toISOString(), { weekday: "long" });
   const wd = weekday.toLowerCase();
@@ -463,6 +478,11 @@ document.addEventListener("submit", async (e) => {
       return;
     }
     if (f.id === "skill-form") { await api("/api/skills", { method: "POST", body: JSON.stringify(data) }); $("#dialog").close(); render(); return toast("Skill saved. Run it whenever you like."); }
+    if (f.id === "setup-form") {
+      await api("/api/recipient", { method: "POST", body: JSON.stringify({ name: data.name, role: data.role || "the person being cared for" }) });
+      await api("/api/members", { method: "POST", body: JSON.stringify({ name: data.me, role: data.myrole || "family" }) });
+      return render();
+    }
     if (f.id === "member-form") { await api("/api/members", { method: "POST", body: JSON.stringify(data) }); $("#dialog").close(); return render(); }
     if (f.id === "term-form") { await api("/api/private-terms", { method: "POST", body: JSON.stringify(data) }); $("#dialog").close(); return render(); }
   } catch (err) {
@@ -470,6 +490,23 @@ document.addEventListener("submit", async (e) => {
     render();
   }
 });
+
+// Private installs ask for the household passcode once per device.
+function showLogin() {
+  $("#view").innerHTML = `<div class="card empty"><h1 class="page-title">Welcome back</h1><p class="lede">This Hearthnote is private. Type the household passcode.</p>
+    <form id="login-form" class="ask"><label class="sr" for="pc">Passcode</label><input id="pc" name="passcode" type="password" autocomplete="current-password" required><button class="btn primary small" type="submit">Open</button></form></div>`;
+  $("#login-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      await api("/api/login", { method: "POST", body: JSON.stringify({ passcode: $("#pc").value }) });
+      await api("/api/state");
+      route();
+    } catch (err) {
+      toast(err.message);
+    }
+  });
+}
 
 $("#dialog").addEventListener("click", (e) => { if (e.target.id === "dialog") e.target.close(); });
 
@@ -487,6 +524,7 @@ window.addEventListener("hashchange", route);
   try {
     await api("/api/state");
   } catch (err) {
+    if (/passcode/i.test(err.message)) return showLogin();
     $("#view").innerHTML = `<div class="empty"><p>${esc(err.message)}</p></div>`;
     return;
   }

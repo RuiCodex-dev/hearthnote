@@ -1,0 +1,18 @@
+# Example for a self-hosted, private household. Copy to docker-compose.yml and create .env
+# next to it with NEBIUS_API_KEY, HEARTH_VAULT_KEY and HEARTH_PASSCODE (never commit it).
+services:
+  hearthnote:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"   # put a TLS reverse proxy in front
+    environment:
+      HEARTH_MODE: private
+      LLM_PROVIDER: nebius
+      HEARTH_SECURE_COOKIES: "1"
+      HEARTH_TIMEZONE: Europe/Brussels
+    env_file: .env
+    volumes:
+      - hearthnote-data:/app/data
+volumes:
+  hearthnote-data:
