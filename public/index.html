@@ -1,1 +1,99 @@
-<!doctype html><title>x</title>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hearthnote - the care circle's notebook</title>
+  <meta name="description" content="A private notebook for families who look after someone at home. Write what happened; Hearthnote keeps the routines, reminders and weekly brief - with names withheld from the model.">
+  <meta name="theme-color" content="#F4EFE6">
+  <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <svg class="sprite" width="0" height="0" aria-hidden="true">
+    <defs>
+      <symbol id="i-mark" viewBox="0 0 32 32"><path d="M6 27V15.5C6 9.7 10.5 5 16 5s10 4.7 10 10.5V27" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M3.5 27h25" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M16 23.2c-2.4 0-3.8-1.6-3.8-3.6 0-2.6 2.6-3.6 3.8-6.4 1.2 2.8 3.8 3.8 3.8 6.4 0 2-1.4 3.6-3.8 3.6z" fill="#A9462F"/></symbol>
+      <symbol id="i-today" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7"/></symbol>
+      <symbol id="i-notes" viewBox="0 0 24 24"><path d="M6 3.5h9l3.5 3.5v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6.5M9 14.5h6.5M9 18h4"/></symbol>
+      <symbol id="i-brief" viewBox="0 0 24 24"><path d="M4 5.5c2.7-1 5.3-1 8 .8 2.7-1.8 5.3-1.8 8-.8v13c-2.7-1-5.3-1-8 .8-2.7-1.8-5.3-1.8-8-.8z"/><path d="M12 6.3v13"/></symbol>
+      <symbol id="i-memory" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.3-7.5-10A4.2 4.2 0 0 1 12 8a4.2 4.2 0 0 1 7.5 2.5c0 5.7-7.5 10-7.5 10z"/></symbol>
+      <symbol id="i-skills" viewBox="0 0 24 24"><path d="M5 6.5h9M5 12h6M5 17.5h9"/><circle cx="17.5" cy="6.5" r="2"/><circle cx="14.5" cy="12" r="2"/><circle cx="17.5" cy="17.5" r="2"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/><path d="M12 14.5v2.5"/></symbol>
+      <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="M4.5 12h13M12.5 6.5 18 12l-5.5 5.5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5.5 12.5 4 4 9-9.5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="m7 7 10 10M17 7 7 17"/></symbol>
+      <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
+      <symbol id="i-pill" viewBox="0 0 24 24"><rect x="3.8" y="8.5" width="16.4" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="m10 9.2 4 5.6"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24"><path d="M6 21V4M6 4.5c4-2 7 2 12 0v8c-5 2-8-2-12 0"/></symbol>
+      <symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9.8 9.6a2.3 2.3 0 1 1 3.2 2.1c-.7.3-1 .8-1 1.5v.5M12 16.5v.3"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13.5 14-14 .3 9-5.5 14-14 14z"/><path d="M5 19c3-4 6-6.5 9.5-8.5"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/><path d="M9.5 3.5v3M14.5 3.5v3M9.5 17.5v3M14.5 17.5v3M3.5 9.5h3M3.5 14.5h3M17.5 9.5h3M17.5 14.5h3"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 21 19.5H3z"/><path d="M12 10v4.5M12 17v.3"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19 12a7 7 0 1 1-2.1-5"/><path d="M19 4.5v4h-4"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="shell">
+    <aside class="rail" aria-label="Navigation">
+      <a class="brand" href="#today" aria-label="Hearthnote home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-word">Hearthnote</span>
+      </a>
+      <a class="btn small ghost mobile-only" href="#privacy"><svg><use href="#i-lock"/></svg><span>Privacy</span></a>
+      <div class="circle-card" id="circle-card"></div>
+      <nav class="nav" id="nav">
+        <a href="#today" data-view="today"><svg><use href="#i-today"/></svg><span>Today</span></a>
+        <a href="#notes" data-view="notes"><svg><use href="#i-notes"/></svg><span>Notes</span></a>
+        <a href="#briefs" data-view="briefs"><svg><use href="#i-brief"/></svg><span>Briefs</span></a>
+        <a href="#memory" data-view="memory"><svg><use href="#i-memory"/></svg><span>Memory</span><b class="count" id="memory-count" hidden></b></a>
+        <a href="#privacy" data-view="privacy"><svg><use href="#i-lock"/></svg><span>Privacy</span></a>
+      </nav>
+      <div class="engine" id="engine"></div>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+      <div id="demo-banner" class="demo-banner" hidden></div>
+      <div id="view"></div>
+    </main>
+
+    <section class="composer-col" aria-label="Write a note">
+      <form class="composer" id="composer" autocomplete="off">
+        <h2 class="composer-title">What happened?</h2>
+        <p class="composer-sub">Write it the way you would text your brother. Hearthnote files it.</p>
+        <div class="who" id="who" role="radiogroup" aria-label="Who is writing"></div>
+        <label class="sr" for="note-text">Note</label>
+        <textarea id="note-text" name="text" rows="6" maxlength="4000" placeholder="e.g. Took Mum to the market. She was tired after 20 minutes and a bit dizzy on the bus. Eye drops done at nine."></textarea>
+        <div class="composer-actions">
+          <button type="button" class="btn ghost" id="dictate" title="Dictate with your browser's speech recognition"><svg><use href="#i-mic"/></svg><span>Dictate</span></button>
+          <button type="submit" class="btn primary" id="save-note"><span>Save note</span><svg><use href="#i-send"/></svg></button>
+        </div>
+        <ol class="steps" id="steps" hidden>
+          <li data-step="0">Withholding names and addresses</li>
+          <li data-step="1">Reading the note on <span id="step-model">Nemotron</span></li>
+          <li data-step="2">Filing observations, tasks and routines</li>
+        </ol>
+        <div id="capture-result"></div>
+      </form>
+    </section>
+  </div>
+
+  <nav class="tabbar" aria-label="Sections">
+    <a href="#today" data-view="today"><svg><use href="#i-today"/></svg><span>Today</span></a>
+    <a href="#notes" data-view="notes"><svg><use href="#i-notes"/></svg><span>Notes</span></a>
+    <a href="#write" class="tab-write" data-view="write"><svg><use href="#i-plus"/></svg><span>Write</span></a>
+    <a href="#briefs" data-view="briefs"><svg><use href="#i-brief"/></svg><span>Briefs</span></a>
+    <a href="#memory" data-view="memory"><svg><use href="#i-memory"/></svg><span>Memory</span></a>
+  </nav>
+
+  <dialog id="dialog" class="dialog"><div id="dialog-body"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

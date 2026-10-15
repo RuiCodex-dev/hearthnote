@@ -96,24 +96,24 @@ export function createApp({ config, runner, store, resolved }) {
     if (path === "/api/state" && method === "GET") return reply(200, stateBody(h, session));
 
     if (path === "/api/notes" && method === "POST") {
+      // Two steps on purpose: the note is saved and checked for red flags instantly, offline;
+      // reading it with the model is a second request the client makes right after.
       const note = addNote(h, { text: body?.text, authorId: body?.authorId, source: body?.source === "voice" ? "voice" : "text" });
-      store.save(h);
+      return done({ noteId: note.id, flags: note.flags });
+    }
+
+    let m;
+    if ((m = path.match(/^\/api\/notes\/(N\d+)\/capture$/)) && method === "POST") {
+      const note = h.notes.find((n) => n.id === m[1]);
+      if (!note) throw new HttpError(404, "no such note");
+      if (note.status === "done") return done({ noteId: note.id });
       try {
         await runner.capture(h, note, opts);
       } catch (err) {
         store.save(h);
         if (err instanceof HttpError) throw err;
-        return reply(200, { noteId: note.id, error: "The note is saved, but it could not be read just now. You can retry.", state: stateBody(h, session) });
+        return reply(200, { noteId: note.id, error: "The note is saved, but it could not be read just now. You can try again.", state: stateBody(h, session) });
       }
-      return done({ noteId: note.id });
-    }
-
-    let m;
-    if ((m = path.match(/^\/api\/notes\/(N\d+)\/retry$/)) && method === "POST") {
-      const note = h.notes.find((n) => n.id === m[1]);
-      if (!note) throw new HttpError(404, "no such note");
-      if (note.status !== "error") return done({ noteId: note.id });
-      await runner.capture(h, note, opts);
       return done({ noteId: note.id });
     }
 

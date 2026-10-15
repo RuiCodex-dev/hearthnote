@@ -35,7 +35,11 @@ test("a visitor gets a seeded sandbox with security headers", async () => {
 });
 
 test("adding a note captures it, flags emergencies and never sends names", async () => {
-  const r = await call("/api/notes", { method: "POST", body: JSON.stringify({ text: "Mireille fell near the stairs and hit her head. Anouk needs to call Dr. Claes tomorrow.", authorId: "P2" }) });
+  const saved = await call("/api/notes", { method: "POST", body: JSON.stringify({ text: "Mireille fell near the stairs and hit her head. Anouk needs to call Dr. Claes tomorrow.", authorId: "P2" }) });
+  assert.equal(saved.status, 200);
+  assert.ok(saved.body.flags.some((f) => f.id === "head"), "red flag is returned before any model call");
+  assert.equal(saved.body.state.ledger.length, 0);
+  const r = await call(`/api/notes/${saved.body.noteId}/capture`, { method: "POST" });
   assert.equal(r.status, 200);
   const note = r.body.state.notes[0];
   assert.equal(note.status, "done");

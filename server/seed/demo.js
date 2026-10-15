@@ -41,11 +41,20 @@ function shiftDates(value, days) {
   return value;
 }
 
+// Hours Brussels is ahead of UTC on a given day (1 in winter, 2 in summer).
+function brusselsOffset(ms) {
+  const d = new Date(ms);
+  const local = Date.parse(d.toLocaleString("en-US", { timeZone: "Europe/Brussels" }));
+  const utc = Date.parse(d.toLocaleString("en-US", { timeZone: "UTC" }));
+  return Math.round((local - utc) / 3600_000);
+}
+
 export function noteTimes(anchor) {
-  // Times are Brussels wall-clock; stored as UTC with a one-hour offset (close enough for a demo).
+  // Note times in the fixture are Brussels wall-clock times.
   return NOTES.notes.map((n) => {
     const [hh, mm] = n.time.split(":").map(Number);
-    return new Date(anchor + n.day * DAY + (hh - 1) * 3600_000 + mm * 60_000).toISOString();
+    const day = anchor + n.day * DAY;
+    return new Date(day + (hh - brusselsOffset(day + 12 * 3600_000)) * 3600_000 + mm * 60_000).toISOString();
   });
 }
 
