@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>Hearthnote - demo</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face { font-family: "Atkinson"; src: url(assets/fonts/atkinson-next.woff2) format("woff2"); font-weight: 200 800; }
+@font-face { font-family: "Newsreader"; src: url(assets/fonts/newsreader.woff2) format("woff2"); font-weight: 200 800; }
+@font-face { font-family: "Newsreader"; src: url(assets/fonts/newsreader-italic.woff2) format("woff2"); font-weight: 200 800; font-style: italic; }
+body { margin: 0; background: #F4EFE6; }
+#root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #F4EFE6; font-family: "Atkinson", sans-serif; color: #22302F; }
+.full { width: 100%; height: 100%; overflow: hidden; }
+.paper { background: #F4EFE6; }
+.kb { position: absolute; inset: 0; overflow: hidden; }
+.kb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.open-veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,28,27,.78) 0%, rgba(20,28,27,.45) 38%, rgba(20,28,27,0) 70%); }
+.open-veil.right { background: linear-gradient(270deg, rgba(20,28,27,.72) 0%, rgba(20,28,27,.35) 42%, rgba(20,28,27,0) 72%); }
+.veil-dark { position: absolute; inset: 0; background: rgba(18,24,24,.58); }
+.open-text { position: absolute; left: 140px; top: 330px; width: 820px; color: #FBF8F2; }
+.close-text { position: absolute; right: 140px; top: 300px; width: 760px; color: #FBF8F2; text-align: right; }
+.close-text .mark { margin-left: auto; }
+.mark { width: 72px; height: 72px; display: block; margin-bottom: 18px; }
+.open-text h1, .close-text h1 { font: italic 500 132px/1 "Newsreader", serif; margin: 0; letter-spacing: -.02em; }
+.open-text p { font: 400 40px/1.3 "Newsreader", serif; margin: 22px 0 0; color: #EDE6D8; }
+.close-text .tag { font: italic 400 46px/1.25 "Newsreader", serif; margin: 18px 0 30px; color: #EDE6D8; }
+.close-text .small { font-size: 26px; margin: 0; color: #D8D0C0; }
+.close-text .by { font-size: 30px; font-weight: 700; margin: 20px 0 0; letter-spacing: .04em; color: #FBF8F2; }
+.pcards { position: absolute; left: 160px; right: 160px; top: 210px; display: flex; gap: 36px; }
+.pcard { flex: 1; background: #FBF8F2; border-radius: 22px; padding: 34px 36px; box-shadow: 0 20px 60px -30px rgba(0,0,0,.6); }
+.pcard header { display: flex; align-items: center; gap: 14px; font-size: 24px; color: #5B6865; margin-bottom: 18px; }
+.pcard header b { color: #22302F; font-size: 27px; }
+.pcard p { font: 400 34px/1.38 "Newsreader", serif; margin: 0; }
+.av { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 22px; }
+.av0 { background: #DCE8DE; color: #2E5A3C; } .av1 { background: #F1E3CB; color: #6B4A12; } .av2 { background: #DCE4EF; color: #2C4766; }
+.prob-line { position: absolute; left: 0; right: 0; top: 700px; text-align: center; font: italic 400 54px/1.2 "Newsreader", serif; color: #FBF8F2; margin: 0; }
+.intro-text { position: absolute; left: 140px; top: 300px; width: 600px; }
+.intro-text h2 { font: italic 500 112px/1 "Newsreader", serif; margin: 14px 0 22px; }
+.intro-text p { font-size: 32px; line-height: 1.45; color: #5B6865; margin: 0; }
+.intro-shot { position: absolute; left: 820px; top: 110px; width: 1000px; height: 860px; border-radius: 24px; overflow: hidden; box-shadow: 0 40px 90px -40px rgba(34,48,47,.55); border: 1px solid #E2DACB; }
+.intro-shot img { width: 100%; display: block; }
+.eyebrow { font-size: 22px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: #A9462F; }
+.frame-shadow { position: absolute; left: 240px; top: 78px; width: 1440px; height: 810px; border-radius: 18px; box-shadow: 0 30px 80px -36px rgba(34,48,47,.5), 0 0 0 1px #E2DACB; }
+.zoomer { width: 100%; height: 100%; }
+.frame-slot { position: absolute; overflow: hidden; border-radius: 18px; left: 240px; top: 78px; width: 1440px; height: 810px; }
+.frame-slot video, .frame-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; display: block; }
+.scene-label { position: absolute; left: 0; right: 0; top: 0; height: 78px; display: flex; align-items: center; gap: 22px; padding: 0 240px; }
+.scene-label .eyebrow { font-size: 19px; }
+.scene-label .title { font: 500 30px/1 "Newsreader", serif; }
+.scene-label .note { margin-left: auto; font-size: 18px; color: #5B6865; font-family: "Atkinson", sans-serif; }
+.chip-skip { position: absolute; left: auto; top: 112px; right: 270px; width: auto; height: auto; padding: 14px 24px; border-radius: 999px; background: #22302F; color: #FBF8F2; font-size: 24px; display: flex; align-items: center; gap: 12px; box-shadow: 0 16px 40px -20px rgba(0,0,0,.6); }
+.chip-skip .dot { width: 12px; height: 12px; border-radius: 50%; background: #D98C72; }
+.chip-rate { position: absolute; left: auto; top: 834px; right: 270px; width: auto; height: auto; padding: 6px 14px; border-radius: 10px; background: rgba(34,48,47,.75); color: #FBF8F2; font-size: 20px; font-weight: 700; }
+.how-eyebrow { position: absolute; left: 160px; top: 120px; }
+.how { position: absolute; left: 160px; right: 160px; top: 210px; display: flex; align-items: center; gap: 0; }
+.box { background: #FBF8F2; border: 1px solid #E2DACB; border-radius: 26px; padding: 40px 44px; box-shadow: 0 30px 70px -40px rgba(34,48,47,.45); }
+.box .tag { display: block; font-size: 22px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #4F7259; margin-bottom: 18px; }
+.home { width: 560px; }
+.home ul { margin: 0; padding-left: 28px; font: 400 33px/1.6 "Newsreader", serif; }
+.wire { flex: 1; height: 4px; background: #A9462F; position: relative; margin: 0 10px; }
+.wire span { position: absolute; left: 50%; top: -58px; transform: translateX(-50%); white-space: nowrap; font: 600 22px/1 ui-monospace, Consolas, monospace; color: #A9462F; background: #F4EFE6; padding: 4px 8px; }
+.tf { width: 600px; background: #26303D; border-color: #26303D; color: #E9E4DA; }
+.tf .tag { color: #D98C72; }
+.tier { border-top: 1px solid rgba(255,255,255,.14); padding: 20px 0; }
+.tier b { display: block; font: 500 40px/1.15 "Newsreader", serif; color: #FBF8F2; }
+.tier span { font-size: 24px; color: #B9C2C8; }
+.how-foot { position: absolute; left: 0; right: 0; top: 860px; text-align: center; font-size: 26px; color: #5B6865; margin: 0; }
+.caption { position: absolute; left: 0; right: 0; top: auto; bottom: 34px; height: auto; display: flex; justify-content: center; pointer-events: none; }
+.caption span { max-width: 1500px; background: rgba(28,36,36,.86); color: #FBF8F2; font-size: 36px; line-height: 1.3; padding: 10px 26px; border-radius: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="139.46">
+<section id="s-open" class="clip full" data-start="0" data-duration="6.90" data-track-index="0">
+  <div class="kb"><img id="open-img" src="assets/img/hero.webp" alt=""></div>
+  <div class="open-veil"></div>
+  <div class="open-text"><svg class="mark" viewBox="0 0 32 32"><path d="M6 27V15.5C6 9.7 10.5 5 16 5s10 4.7 10 10.5V27" fill="none" stroke="#FBF8F2" stroke-width="2.2" stroke-linecap="round"/><path d="M3.5 27h25" fill="none" stroke="#FBF8F2" stroke-width="2.2" stroke-linecap="round"/><path d="M16 23.2c-2.4 0-3.8-1.6-3.8-3.6 0-2.6 2.6-3.6 3.8-6.4 1.2 2.8 3.8 3.8 3.8 6.4 0 2-1.4 3.6-3.8 3.6z" fill="#D98C72"/></svg><h1 id="open-title">Hearthnote</h1><p id="open-sub">For families who look after someone at home.</p></div>
+</section>
+<section id="s-problem" class="clip full" data-start="6.90" data-duration="15.85" data-track-index="0">
+  <div class="kb"><img id="prob-img" src="assets/img/walk.webp" alt=""></div><div class="veil-dark"></div>
+  <div class="pcards"><article class="pcard" id="pc0"><header><span class="av av0">A</span><b>Anouk</b><span>daughter · Monday</span></header><p>Dr. Claes started amlodipine 5 mg once a day in the morning for her blood pressure.</p></article><article class="pcard" id="pc1"><header><span class="av av1">S</span><b>Sofie</b><span>home nurse · Tuesday</span></header><p>She mentioned her ankles feel a bit puffy.</p></article><article class="pcard" id="pc2"><header><span class="av av2">B</span><b>Bram</b><span>son · Thursday</span></header><p>Mum was a bit unsteady on the stairs and held the rail with both hands.</p></article></div>
+  <p class="prob-line" id="prob-line">Three people. Three chats. No one sees the pattern.</p>
+</section>
+<section id="s-intro" class="clip full paper" data-start="22.75" data-duration="8.48" data-track-index="0">
+  <div class="intro-text"><span class="eyebrow">Introducing</span><h2 id="intro-h">Hearthnote</h2><p>The care circle's notebook. Write what happened; it keeps the routines, the reminders and the weekly brief.</p></div>
+  <div class="intro-shot"><img id="intro-img" src="assets/img/today.png" alt=""></div>
+</section>
+<section id="s-how" class="clip full paper" data-start="115.14" data-duration="13.18" data-track-index="0">
+  <span class="eyebrow how-eyebrow">How it works</span>
+  <div class="how">
+    <div class="box home" id="how-home"><span class="tag">The family's server</span><ul><li>Notes and memory in an AES-256-GCM vault</li><li>Red-flag check, offline</li><li>Privacy gate: names and identifiers out</li><li>Answers re-identified, citations checked</li></ul></div>
+    <div class="wire" id="how-wire"><span>[P1] [P2] [PRIVATE1]</span></div>
+    <div class="box tf" id="how-tf"><span class="tag">Nebius Token Factory</span><div class="tier" id="tier-fast"><b>Nemotron 3 Super</b><span>fast tier · every note, questions, handovers</span></div><div class="tier" id="tier-deep"><b>Nemotron 3 Ultra</b><span>deep tier · weekly brief, doctor's visit, medication check</span></div></div>
+  </div>
+  <p class="how-foot" id="how-foot">Node.js, zero dependencies · skills as small JSON recipes · MIT licence</p>
+</section>
+<section id="s-close" class="clip full" data-start="128.32" data-duration="11.14" data-track-index="0">
+  <div class="kb"><img id="close-img" src="assets/img/evening.webp" alt=""></div><div class="open-veil right"></div>
+  <div class="close-text"><svg class="mark" viewBox="0 0 32 32"><path d="M6 27V15.5C6 9.7 10.5 5 16 5s10 4.7 10 10.5V27" fill="none" stroke="#FBF8F2" stroke-width="2.2" stroke-linecap="round"/><path d="M3.5 27h25" fill="none" stroke="#FBF8F2" stroke-width="2.2" stroke-linecap="round"/><path d="M16 23.2c-2.4 0-3.8-1.6-3.8-3.6 0-2.6 2.6-3.6 3.8-6.4 1.2 2.8 3.8 3.8 3.8 6.4 0 2-1.4 3.6-3.8 3.6z" fill="#D98C72"/></svg><h1>Hearthnote</h1><p class="tag">The care circle's notebook.</p><p class="small">NVIDIA Nemotron on Nebius Token Factory · Personal AI track</p><p class="by">Rui Codex</p></div>
+</section>
+<section id="bg-write" class="clip full paper" data-start="31.23" data-duration="18.29" data-track-index="0"><div class="frame-shadow"></div></section>
+<section id="bg-privacy" class="clip full paper" data-start="49.52" data-duration="17.42" data-track-index="0"><div class="frame-shadow"></div></section>
+<section id="bg-brief" class="clip full paper" data-start="66.94" data-duration="19.28" data-track-index="0"><div class="frame-shadow"></div></section>
+<section id="bg-ask" class="clip full paper" data-start="86.22" data-duration="6.40" data-track-index="0"><div class="frame-shadow"></div></section>
+<section id="bg-memory" class="clip full paper" data-start="92.62" data-duration="14.42" data-track-index="0"><div class="frame-shadow"></div></section>
+<section id="bg-emergency" class="clip full paper" data-start="107.04" data-duration="8.10" data-track-index="0"><div class="frame-shadow"></div></section>
+<div class="frame-slot"><div class="zoomer" id="fs-a_write-0"><video id="v2" src="assets/clips/a_write.mp4" muted playsinline data-start="31.48" data-duration="14.00" data-media-start="0.00" data-track-index="1"></video></div></div>
+<div class="frame-slot"><div class="zoomer" id="fs-a_write-1"><img id="hold3" class="clip" src="assets/clips/a_write_hold.jpg" alt="" data-start="45.48" data-duration="4.04" data-track-index="1"></div></div>
+<div class="frame-slot"><div class="zoomer" id="fs-b_privacy-0"><video id="v5" src="assets/clips/b_privacy.mp4" muted playsinline data-start="49.77" data-duration="14.40" data-media-start="0.00" data-track-index="1"></video></div></div>
+<div class="frame-slot"><div class="zoomer" id="fs-b_privacy-1"><img id="hold6" class="clip" src="assets/clips/b_privacy_hold.jpg" alt="" data-start="64.17" data-duration="2.77" data-track-index="1"></div></div>
+<div class="frame-slot"><div class="zoomer" id="fs-c_brief-0"><video id="v8" src="assets/clips/c_brief.mp4" muted playsinline data-start="67.19" data-duration="18.93" data-media-start="0.00" data-playback-rate="1.36" data-track-index="1"></video></div></div>
+<div class="frame-slot"><div class="zoomer" id="fs-d_ask-0"><video id="v11" src="assets/clips/d_ask.mp4" muted playsinline data-start="86.47" data-duration="6.11" data-media-start="0.00" data-playback-rate="1.45" data-track-index="1"></video></div></div>
+<div class="frame-slot"><div class="zoomer" id="fs-e_memory-0"><video id="v14" src="assets/clips/e_memory.mp4" muted playsinline data-start="92.87" data-duration="10.19" data-media-start="0.00" data-track-index="1"></video></div></div>
+<div class="frame-slot"><div class="zoomer" id="fs-e_memory-1"><img id="hold15" class="clip" src="assets/clips/e_memory_hold.jpg" alt="" data-start="103.06" data-duration="3.98" data-track-index="1"></div></div>
+<div class="frame-slot"><div class="zoomer" id="fs-f_emergency-0"><video id="v17" src="assets/clips/f_emergency.mp4" muted playsinline data-start="107.29" data-duration="7.80" data-media-start="0.00" data-playback-rate="1.06" data-track-index="1"></video></div></div>
+<section id="lab1" class="clip scene-label" data-start="31.23" data-duration="18.29" data-track-index="4"><span class="eyebrow">1 · Write a note</span><span class="title">Saved, checked offline, then read</span><span class="note">fast tier · nvidia/nemotron-3-super-120b-a12b</span></section>
+<section id="lab4" class="clip scene-label" data-start="49.52" data-duration="17.42" data-track-index="4"><span class="eyebrow">2 · Privacy</span><span class="title">Exactly what left the server</span><span class="note">names, streets and numbers become placeholders</span></section>
+<section id="lab7" class="clip scene-label" data-start="66.94" data-duration="19.28" data-track-index="4"><span class="eyebrow">3 · Weekly family brief</span><span class="title">Dates lined up across people</span><span class="note">deep tier · nvidia/Nemotron-3-Ultra-550b-a55b · reasoning on</span></section>
+<div id="rate9" class="clip chip-rate" data-start="67.19" data-duration="19.03" data-track-index="5">1.36x</div>
+<section id="lab10" class="clip scene-label" data-start="86.22" data-duration="6.40" data-track-index="4"><span class="eyebrow">4 · Ask the log</span><span class="title">Answers from what was written</span><span class="note">cited, never from outside knowledge</span></section>
+<div id="rate12" class="clip chip-rate" data-start="86.47" data-duration="6.15" data-track-index="5">1.45x</div>
+<section id="lab13" class="clip scene-label" data-start="92.62" data-duration="14.42" data-track-index="4"><span class="eyebrow">5 · Memory by consent</span><span class="title">Proposed by the model, confirmed by a person</span><span class="note">and reminders in everyone&#x27;s own calendar</span></section>
+<section id="lab16" class="clip scene-label" data-start="107.04" data-duration="8.10" data-track-index="4"><span class="eyebrow">6 · Safety</span><span class="title">Red flags are checked before any model</span><span class="note">no inference between a family and 112</span></section>
+<div id="rate18" class="clip chip-rate" data-start="107.29" data-duration="7.85" data-track-index="5">1.06x</div>
+<div id="cap0" class="clip caption" data-start="0.47" data-duration="2.09" data-track-index="6"><span>When a parent starts needing care,</span></div>
+<div id="cap1" class="clip caption" data-start="2.73" data-duration="2.74" data-track-index="6"><span>what the family knows about her starts to scatter.</span></div>
+<div id="cap2" class="clip caption" data-start="7.39" data-duration="3.23" data-track-index="6"><span>Her daughter knows about the new blood pressure tablet.</span></div>
+<div id="cap3" class="clip caption" data-start="10.88" data-duration="2.68" data-track-index="6"><span>The home nurse noticed her ankles swelling.</span></div>
+<div id="cap4" class="clip caption" data-start="13.81" data-duration="2.24" data-track-index="6"><span>Her son saw her grip the stair rail with</span></div>
+<div id="cap5" class="clip caption" data-start="16.05" data-duration="2.91" data-track-index="6"><span>both hands. Nobody puts it together,</span></div>
+<div id="cap6" class="clip caption" data-start="19.09" data-duration="2.43" data-track-index="6"><span>and nobody remembers to ask the doctor.</span></div>
+<div id="cap7" class="clip caption" data-start="23.24" data-duration="2.80" data-track-index="6"><span>Hearthnote is a private notebook for the whole care</span></div>
+<div id="cap8" class="clip caption" data-start="26.04" data-duration="2.40" data-track-index="6"><span>circle. You write what happened,</span></div>
+<div id="cap9" class="clip caption" data-start="28.59" data-duration="1.81" data-track-index="6"><span>the way you would text your brother.</span></div>
+<div id="cap10" class="clip caption" data-start="31.73" data-duration="1.25" data-track-index="6"><span>The note is saved,</span></div>
+<div id="cap11" class="clip caption" data-start="33.07" data-duration="2.01" data-track-index="6"><span>and checked for emergencies first,</span></div>
+<div id="cap12" class="clip caption" data-start="35.18" data-duration="1.53" data-track-index="6"><span>with no model involved.</span></div>
+<div id="cap13" class="clip caption" data-start="36.97" data-duration="2.36" data-track-index="6"><span>Then NVIDIA Nemotron 3 Super,</span></div>
+<div id="cap14" class="clip caption" data-start="39.45" data-duration="1.92" data-track-index="6"><span>running on Nebius Token Factory,</span></div>
+<div id="cap15" class="clip caption" data-start="41.49" data-duration="2.09" data-track-index="6"><span>files it: what was observed,</span></div>
+<div id="cap16" class="clip caption" data-start="43.67" data-duration="3.18" data-track-index="6"><span>medication changes, to-dos, routines,</span></div>
+<div id="cap17" class="clip caption" data-start="46.90" data-duration="1.58" data-track-index="6"><span>and things worth remembering.</span></div>
+<div id="cap18" class="clip caption" data-start="49.97" data-duration="2.09" data-track-index="6"><span>Before anything leaves the server,</span></div>
+<div id="cap19" class="clip caption" data-start="52.21" data-duration="3.90" data-track-index="6"><span>names, addresses and phone numbers are swapped for placeholders.</span></div>
+<div id="cap20" class="clip caption" data-start="56.38" data-duration="2.92" data-track-index="6"><span>The model reasons about P1 and her daughter,</span></div>
+<div id="cap21" class="clip caption" data-start="59.44" data-duration="1.66" data-track-index="6"><span>and never learns who they are.</span></div>
+<div id="cap22" class="clip caption" data-start="61.34" data-duration="2.92" data-track-index="6"><span>Every request, and every word that was sent,</span></div>
+<div id="cap23" class="clip caption" data-start="64.38" data-duration="1.53" data-track-index="6"><span>is on the privacy page.</span></div>
+<div id="cap24" class="clip caption" data-start="67.43" data-duration="3.83" data-track-index="6"><span>Once a week, Nemotron 3 Ultra reads everything together,</span></div>
+<div id="cap25" class="clip caption" data-start="71.38" data-duration="2.00" data-track-index="6"><span>and lines up dates across people:</span></div>
+<div id="cap26" class="clip caption" data-start="73.57" data-duration="2.39" data-track-index="6"><span>the dizziness and the swollen ankles began in the</span></div>
+<div id="cap27" class="clip caption" data-start="75.96" data-duration="1.84" data-track-index="6"><span>days after the new tablet.</span></div>
+<div id="cap28" class="clip caption" data-start="78.06" data-duration="3.39" data-track-index="6"><span>Not a diagnosis, but a question for Tuesday&#x27;s GP</span></div>
+<div id="cap29" class="clip caption" data-start="81.45" data-duration="2.73" data-track-index="6"><span>appointment, with every line linked to the note it</span></div>
+<div id="cap30" class="clip caption" data-start="84.18" data-duration="0.80" data-track-index="6"><span>came from.</span></div>
+<div id="cap31" class="clip caption" data-start="86.69" data-duration="2.12" data-track-index="6"><span>Anyone can ask the log a question,</span></div>
+<div id="cap32" class="clip caption" data-start="88.92" data-duration="2.26" data-track-index="6"><span>and get an answer from what was actually written</span></div>
+<div id="cap33" class="clip caption" data-start="91.18" data-duration="0.60" data-track-index="6"><span>down.</span></div>
+<div id="cap34" class="clip caption" data-start="93.11" data-duration="2.36" data-track-index="6"><span>Long-term memory works by consent:</span></div>
+<div id="cap35" class="clip caption" data-start="95.67" data-duration="2.95" data-track-index="6"><span>Hearthnote proposes, a person confirms.</span></div>
+<div id="cap36" class="clip caption" data-start="98.88" data-duration="3.03" data-track-index="6"><span>Routines and appointments go out as a private calendar</span></div>
+<div id="cap37" class="clip caption" data-start="101.91" data-duration="3.01" data-track-index="6"><span>feed, so reminders reach everyone in the calendar they</span></div>
+<div id="cap38" class="clip caption" data-start="104.92" data-duration="1.08" data-track-index="6"><span>already use.</span></div>
+<div id="cap39" class="clip caption" data-start="107.53" data-duration="2.35" data-track-index="6"><span>And when a note describes an emergency,</span></div>
+<div id="cap40" class="clip caption" data-start="110.02" data-duration="1.74" data-track-index="6"><span>the answer is immediate.</span></div>
+<div id="cap41" class="clip caption" data-start="112.03" data-duration="2.28" data-track-index="6"><span>That is not a language model&#x27;s job.</span></div>
+<div id="cap42" class="clip caption" data-start="115.59" data-duration="2.56" data-track-index="6"><span>Two Nemotron tiers on Token Factory:</span></div>
+<div id="cap43" class="clip caption" data-start="118.35" data-duration="1.76" data-track-index="6"><span>a fast one for every note,</span></div>
+<div id="cap44" class="clip caption" data-start="120.25" data-duration="2.02" data-track-index="6"><span>a deep one for the weekly reasoning.</span></div>
+<div id="cap45" class="clip caption" data-start="122.54" data-duration="1.67" data-track-index="6"><span>A privacy gate in front,</span></div>
+<div id="cap46" class="clip caption" data-start="124.36" data-duration="2.92" data-track-index="6"><span>and an encrypted vault on the family&#x27;s own server.</span></div>
+<div id="cap47" class="clip caption" data-start="128.79" data-duration="3.12" data-track-index="6"><span>Hearthnote. The care circle&#x27;s notebook.</span></div>
+<div id="cap48" class="clip caption" data-start="132.18" data-duration="3.14" data-track-index="6"><span>Built by Rui Codex for the Nebius and NVIDIA</span></div>
+<div id="cap49" class="clip caption" data-start="135.32" data-duration="1.69" data-track-index="6"><span>Global AI Hackathon.</span></div>
+<audio id="voice" src="assets/audio/voice.wav" data-start="0" data-duration="139.46" data-track-index="8" data-volume="1"></audio>
+<audio id="music" src="assets/audio/music.wav" data-start="0" data-duration="139.46" data-track-index="9" data-volume="0.22"></audio>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#open-img", {scale: 1.0}, {scale: 1.08, duration: 6.90, ease: "none"}, 0);
+tl.fromTo(".open-text > *", {opacity: 0, y: 14}, {opacity: 1, y: 0, duration: 0.9, stagger: 0.18, ease: "power3.out"}, 0.4);
+tl.fromTo("#prob-img", {scale: 1.06}, {scale: 1.0, duration: 15.85, ease: "none"}, 6.90);
+tl.fromTo("#pc0", {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 0.7, ease: "power3.out"}, 7.29);
+tl.fromTo("#pc1", {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 0.7, ease: "power3.out"}, 10.78);
+tl.fromTo("#pc2", {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 0.7, ease: "power3.out"}, 13.71);
+tl.to(".pcard", {opacity: 0.35, duration: 0.6}, 17.33);
+tl.fromTo("#prob-line", {opacity: 0, y: 12}, {opacity: 1, y: 0, duration: 0.6, ease: "power2.out"}, 17.53);
+tl.fromTo(".intro-text > *", {opacity: 0, x: -20}, {opacity: 1, x: 0, duration: 0.7, stagger: 0.12, ease: "power3.out"}, 22.95);
+tl.fromTo(".intro-shot", {opacity: 0, y: 40}, {opacity: 1, y: 0, duration: 0.9, ease: "power3.out"}, 23.15);
+tl.fromTo("#intro-img", {y: 0}, {y: -140, duration: 7.48, ease: "sine.inOut"}, 23.75);
+tl.fromTo("#lab1 > span", {opacity: 0, y: 8}, {opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out"}, 31.38);
+tl.fromTo("#fs-a_write-0, #fs-a_write-1", {scale: 1}, {scale: 1.6, transformOrigin: "90% 72%", duration: 0.9, ease: "power2.inOut"}, 40.85);
+tl.to("#fs-a_write-0, #fs-a_write-1", {scale: 1, duration: 0.8, ease: "power2.inOut"}, 47.75);
+tl.fromTo("#lab4 > span", {opacity: 0, y: 8}, {opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out"}, 49.67);
+tl.fromTo("#fs-b_privacy-0, #fs-b_privacy-1", {scale: 1}, {scale: 1.4, transformOrigin: "50% 45%", duration: 0.9, ease: "power2.inOut"}, 55.55);
+tl.to("#fs-b_privacy-0, #fs-b_privacy-1", {scale: 1, duration: 0.8, ease: "power2.inOut"}, 63.45);
+tl.fromTo("#lab7 > span", {opacity: 0, y: 8}, {opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out"}, 67.09);
+tl.fromTo("#lab10 > span", {opacity: 0, y: 8}, {opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out"}, 86.37);
+tl.fromTo("#fs-d_ask-0", {scale: 1}, {scale: 1.55, transformOrigin: "34% 90%", duration: 0.9, ease: "power2.inOut"}, 88.93);
+tl.to("#fs-d_ask-0", {scale: 1, duration: 0.8, ease: "power2.inOut"}, 91.72);
+tl.fromTo("#lab13 > span", {opacity: 0, y: 8}, {opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out"}, 92.77);
+tl.fromTo("#lab16 > span", {opacity: 0, y: 8}, {opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out"}, 107.19);
+tl.fromTo("#fs-f_emergency-0", {scale: 1}, {scale: 1.7, transformOrigin: "90% 62%", duration: 0.9, ease: "power2.inOut"}, 110.54);
+tl.to("#fs-f_emergency-0", {scale: 1, duration: 0.8, ease: "power2.inOut"}, 114.24);
+tl.fromTo("#how-home", {opacity: 0, x: -30}, {opacity: 1, x: 0, duration: 0.7, ease: "power3.out"}, 115.44);
+tl.fromTo("#how-wire", {opacity: 0, scaleX: 0.2}, {opacity: 1, scaleX: 1, duration: 0.6, ease: "power2.out"}, 116.34);
+tl.fromTo("#how-tf", {opacity: 0, x: 30}, {opacity: 1, x: 0, duration: 0.7, ease: "power3.out"}, 116.94);
+tl.fromTo("#tier-fast", {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 0.5}, 117.19);
+tl.fromTo("#tier-deep", {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 0.5}, 118.79);
+tl.fromTo("#how-foot", {opacity: 0}, {opacity: 1, duration: 0.6}, 121.14);
+tl.fromTo("#close-img", {scale: 1.0}, {scale: 1.06, duration: 11.14, ease: "none"}, 128.32);
+tl.fromTo(".close-text > *", {opacity: 0, y: 14}, {opacity: 1, y: 0, duration: 0.8, stagger: 0.16, ease: "power3.out"}, 128.62);
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

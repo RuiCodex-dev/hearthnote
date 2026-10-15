@@ -10,3 +10,7 @@ video/hyperframes/node_modules/
 evidence/raw/
 .DS_Store
 evidence/live-check-mock.json
+video/*.mp4
+video/hyperframes/assets/clips/
+video/hyperframes/assets/audio/
+video/hyperframes/.hyperframes/

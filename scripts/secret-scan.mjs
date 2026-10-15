@@ -11,10 +11,13 @@ for (const v of [process.env.NEBIUS_API_KEY, process.env.TAVILY_API_KEY, process
 const keyDir = join(homedir(), ".ruicodex-keys");
 if (existsSync(keyDir)) {
   for (const f of readdirSync(keyDir).filter((f) => f.endsWith(".json"))) {
-    const walk = (o) => {
+    // Only values stored under secret-looking names (api_key, password, promo_code, ...): the
+    // keys file also holds public notes and URLs that legitimately appear in docs.
+    const SECRETISH = /(key|secret|password|token|pat|code|value|credential)/i;
+    const walk = (o, name = "") => {
       if (typeof o === "string") {
-        if (o.length >= 10 && !/\s/.test(o) && !/^https?:/.test(o) && !o.includes("@") && !/^\d{4}-\d{2}-\d{2}/.test(o)) literals.add(o);
-      } else if (o && typeof o === "object") Object.values(o).forEach(walk);
+        if (SECRETISH.test(name) && o.length >= 8 && !/\s/.test(o) && !/^https?:/.test(o)) literals.add(o);
+      } else if (o && typeof o === "object") for (const [k, v] of Object.entries(o)) walk(v, Array.isArray(o) ? name : k);
     };
     try {
       walk(JSON.parse(readFileSync(join(keyDir, f), "utf8")));

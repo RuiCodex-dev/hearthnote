@@ -1,0 +1,17 @@
+{
+  "voice": "en-GB-SoniaNeural",
+  "rate": "-4%",
+  "scenes": [
+    {"id": "open", "pad": 1.2, "text": "When a parent starts needing care, what the family knows about her starts to scatter."},
+    {"id": "problem", "pad": 1.0, "text": "Her daughter knows about the new blood pressure tablet. The home nurse noticed her ankles swelling. Her son saw her grip the stair rail with both hands. Nobody puts it together, and nobody remembers to ask the doctor."},
+    {"id": "intro", "pad": 0.6, "text": "Hearthnote is a private notebook for the whole care circle. You write what happened, the way you would text your brother."},
+    {"id": "write", "pad": 0.8, "text": "The note is saved, and checked for emergencies first, with no model involved. Then NVIDIA Nemotron 3 Super, running on Nebius Token Factory, files it: what was observed, medication changes, to-dos, routines, and things worth remembering."},
+    {"id": "privacy", "pad": 0.8, "text": "Before anything leaves the server, names, addresses and phone numbers are swapped for placeholders. The model reasons about P1 and her daughter, and never learns who they are. Every request, and every word that was sent, is on the privacy page."},
+    {"id": "brief", "pad": 1.0, "text": "Once a week, Nemotron 3 Ultra reads everything together, and lines up dates across people: the dizziness and the swollen ankles began in the days after the new tablet. Not a diagnosis, but a question for Tuesday's GP appointment, with every line linked to the note it came from."},
+    {"id": "ask", "pad": 0.6, "text": "Anyone can ask the log a question, and get an answer from what was actually written down."},
+    {"id": "memory", "pad": 0.8, "text": "Long-term memory works by consent: Hearthnote proposes, a person confirms. Routines and appointments go out as a private calendar feed, so reminders reach everyone in the calendar they already use."},
+    {"id": "emergency", "pad": 0.6, "text": "And when a note describes an emergency, the answer is immediate. That is not a language model's job."},
+    {"id": "how", "pad": 0.8, "text": "Two Nemotron tiers on Token Factory: a fast one for every note, a deep one for the weekly reasoning. A privacy gate in front, and an encrypted vault on the family's own server."},
+    {"id": "close", "pad": 2.2, "text": "Hearthnote. The care circle's notebook. Built by Rui Codex for the Nebius and NVIDIA Global AI Hackathon."}
+  ]
+}
