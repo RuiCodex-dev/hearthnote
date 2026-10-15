@@ -1,0 +1,1646 @@
+{
+  "startedAt": "2026-10-15T20:23:41.162Z",
+  "provider": "nebius",
+  "models": {
+    "fast": "nvidia/nemotron-3-super-120b-a12b",
+    "deep": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "available": [
+      "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+      "nvidia/Nemotron-3_5-Lightning",
+      "nvidia/Nemotron-3-Ultra-550b-a55b",
+      "nvidia/nemotron-3-super-120b-a12b",
+      "nvidia/Nemotron-3.5-Super-VL"
+    ]
+  },
+  "steps": [
+    {
+      "step": "capture N1",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1002,
+        "completionTokens": 162,
+        "reasoningChars": 0,
+        "latencyMs": 1741,
+        "schemaWarnings": 0
+      },
+      "summary": "Mum had a good morning walking to the bakery and back with her walker, ate all her soup at lunch, and prefers her coffee with warm milk.",
+      "counts": {
+        "observations": 2,
+        "medications": 0,
+        "tasks": 0,
+        "routines": 0,
+        "appointments": 0,
+        "memory": 1
+      }
+    },
+    {
+      "step": "capture N2",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1004,
+        "completionTokens": 233,
+        "reasoningChars": 0,
+        "latencyMs": 1428,
+        "schemaWarnings": 0
+      },
+      "summary": "New eye drops started for left eye each evening at 21:00 for one month; blood pressure reading elevated.",
+      "counts": {
+        "observations": 2,
+        "medications": 1,
+        "tasks": 0,
+        "routines": 1,
+        "appointments": 0,
+        "memory": 0
+      }
+    },
+    {
+      "step": "capture N3",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 986,
+        "completionTokens": 112,
+        "reasoningChars": 0,
+        "latencyMs": 1496,
+        "schemaWarnings": 0
+      },
+      "summary": "Bram phoned Mireille. Mireille was cheerful and talked about the neighbour's new dog but repeated a story already told earlier that day.",
+      "counts": {
+        "observations": 1,
+        "medications": 0,
+        "tasks": 0,
+        "routines": 0,
+        "appointments": 0,
+        "memory": 0
+      }
+    },
+    {
+      "step": "capture N4",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1002,
+        "completionTokens": 180,
+        "reasoningChars": 0,
+        "latencyMs": 1562,
+        "schemaWarnings": 0
+      },
+      "summary": "Amlodipine 5 mg was started this morning for blood pressure; second box needs pickup on Friday.",
+      "counts": {
+        "observations": 1,
+        "medications": 1,
+        "tasks": 1,
+        "routines": 0,
+        "appointments": 0,
+        "memory": 0
+      }
+    },
+    {
+      "step": "capture N5",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 990,
+        "completionTokens": 168,
+        "reasoningChars": 0,
+        "latencyMs": 1148,
+        "schemaWarnings": 0
+      },
+      "summary": "Home nurse reported taking amlodipine with breakfast, showering with help, and noting puffy ankles.",
+      "counts": {
+        "observations": 3,
+        "medications": 1,
+        "tasks": 0,
+        "routines": 0,
+        "appointments": 0,
+        "memory": 0
+      }
+    },
+    {
+      "step": "capture N6",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 990,
+        "completionTokens": 165,
+        "reasoningChars": 0,
+        "latencyMs": 1192,
+        "schemaWarnings": 0
+      },
+      "summary": "Mireille felt dizzy getting up from the armchair after lunch, sat down again and it passed after a minute, did not want to walk to the bakery.",
+      "counts": {
+        "observations": 3,
+        "medications": 0,
+        "tasks": 0,
+        "routines": 0,
+        "appointments": 0,
+        "memory": 0
+      }
+    },
+    {
+      "step": "capture N7",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 995,
+        "completionTokens": 176,
+        "reasoningChars": 0,
+        "latencyMs": 1822,
+        "schemaWarnings": 0
+      },
+      "summary": "During weekend visit, fixed loose rug in hallway; mum was unsteady on stairs holding rail with both hands; slept badly, up twice in night.",
+      "counts": {
+        "observations": 2,
+        "medications": 0,
+        "tasks": 1,
+        "routines": 0,
+        "appointments": 0,
+        "memory": 0
+      }
+    },
+    {
+      "step": "capture N8",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1006,
+        "completionTokens": 176,
+        "reasoningChars": 0,
+        "latencyMs": 1341,
+        "schemaWarnings": 0
+      },
+      "summary": "Home nurse reports ankle swelling improved overnight but dizziness on standing persists; advised slow rising. Physio scheduled Mondays and Thursdays at 10:00 with daughter assistance.",
+      "counts": {
+        "observations": 2,
+        "medications": 0,
+        "tasks": 0,
+        "routines": 1,
+        "appointments": 0,
+        "memory": 0
+      }
+    },
+    {
+      "step": "capture N9",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 998,
+        "completionTokens": 140,
+        "reasoningChars": 0,
+        "latencyMs": 1119,
+        "schemaWarnings": 0
+      },
+      "summary": "Anouk spent a lovely afternoon sorting old photos with Mireille, who laughed a lot and ate well. Mireille still reports the room spinning a little when getting up.",
+      "counts": {
+        "observations": 1,
+        "medications": 0,
+        "tasks": 1,
+        "routines": 0,
+        "appointments": 0,
+        "memory": 0
+      }
+    },
+    {
+      "step": "capture N10",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 989,
+        "completionTokens": 133,
+        "reasoningChars": 0,
+        "latencyMs": 1110,
+        "schemaWarnings": 0
+      },
+      "summary": "Home nurse recorded blood pressure reading, administered eye drops, and reminded about penicillin allergy for pharmacy records.",
+      "counts": {
+        "observations": 1,
+        "medications": 0,
+        "tasks": 1,
+        "routines": 0,
+        "appointments": 0,
+        "memory": 1
+      }
+    },
+    {
+      "step": "capture N11",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1016,
+        "completionTokens": 180,
+        "reasoningChars": 0,
+        "latencyMs": 1561,
+        "schemaWarnings": 0
+      },
+      "summary": "GP appointment scheduled for next Tuesday at 10:30 with Dr. Claes. Anouk will accompany Mireille, and a taxi will pick her up at Vaartstraat 12 at 10:00.",
+      "counts": {
+        "observations": 0,
+        "medications": 0,
+        "tasks": 1,
+        "routines": 0,
+        "appointments": 1,
+        "memory": 0
+      }
+    },
+    {
+      "step": "capture N12",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 996,
+        "completionTokens": 193,
+        "reasoningChars": 0,
+        "latencyMs": 1885,
+        "schemaWarnings": 0
+      },
+      "summary": "She slept better but ankles were a bit puffy again. Took her amlodipine. Wants to go to the market on Saturday with Bram.",
+      "counts": {
+        "observations": 2,
+        "medications": 1,
+        "tasks": 0,
+        "routines": 0,
+        "appointments": 1,
+        "memory": 0
+      }
+    },
+    {
+      "step": "weekly-digest",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+        "tier": "deep",
+        "thinking": true,
+        "promptTokens": 1531,
+        "completionTokens": 3456,
+        "reasoningChars": 7663,
+        "latencyMs": 9332,
+        "schemaWarnings": 0
+      },
+      "headline": "Weekly brief 2026-10-09 to 2026-10-15",
+      "sections": [
+        "This week at a glance (4)",
+        "Changes worth noticing (2)",
+        "Keep an eye on (3)",
+        "Who does what next (5)"
+      ],
+      "questions": [
+        "Could the dizziness and spinning sensation when standing be related to the new amlodipine or her blood pressure?",
+        "Is the ankle puffiness a known side effect of amlodipine or should it be investigated further?",
+        "Is the blood pressure reading of 138/84 within the target range for her?",
+        "Has the penicillin allergy been recorded at the new pharmacy?",
+        "Should the eye drops continue for the full prescribed month?"
+      ],
+      "references": []
+    },
+    {
+      "step": "visit-prep",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+        "tier": "deep",
+        "thinking": true,
+        "promptTokens": 2232,
+        "completionTokens": 4226,
+        "reasoningChars": 6707,
+        "latencyMs": 11082,
+        "schemaWarnings": 0
+      },
+      "headline": "Brief for GP appointment 2026-10-20",
+      "sections": [
+        "Medications and recent changes (2)",
+        "Symptoms and observations since the last visit (7)",
+        "Daily functioning (4)",
+        "What the family has already tried (7)"
+      ],
+      "questions": [
+        "Could the dizziness on standing be related to the new amlodipine or eye drops?",
+        "Is the amlodipine dose appropriate given the blood pressure drop from 162/94 to 138/84?",
+        "Should we investigate the ankle swelling (puffy ankles) further?",
+        "Is the occasional forgetfulness (repeating story) a concern?",
+        "What fall prevention measures would you recommend given unsteadiness on stairs and dizziness?",
+        "Should the eye drops continue for the full month as prescribed?"
+      ],
+      "references": []
+    },
+    {
+      "step": "med-check",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+        "tier": "deep",
+        "thinking": true,
+        "promptTokens": 2172,
+        "completionTokens": 3339,
+        "reasoningChars": 8840,
+        "latencyMs": 8132,
+        "schemaWarnings": 0
+      },
+      "headline": "Medication change check: amlodipine started 2026-10-05",
+      "sections": [
+        "What changed (1)",
+        "Observed since then (8)"
+      ],
+      "questions": [],
+      "references": []
+    },
+    {
+      "step": "handover",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1129,
+        "completionTokens": 540,
+        "reasoningChars": 0,
+        "latencyMs": 2937,
+        "schemaWarnings": 0
+      },
+      "headline": "Handover for Anouk's visit",
+      "sections": [
+        "Since you were last here (4)",
+        "Due during your visit (2)",
+        "Check while you are there (2)"
+      ],
+      "questions": [
+        "Should we ask the GP about the ankle puffiness?",
+        "Is the dizziness still a concern to discuss with the GP?"
+      ],
+      "references": []
+    },
+    {
+      "step": "ask",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1028,
+        "completionTokens": 99,
+        "reasoningChars": 0,
+        "latencyMs": 1232,
+        "schemaWarnings": 0
+      },
+      "answer": "The first mention of dizziness was on 2026-10-09 when Sofie noted dizzy again when standing up quickly. Since then, Anouk reported on 2026-10-11 that she still says the room spins a little when she gets up, indicating the dizziness persisted.",
+      "cites": [
+        "N8",
+        "N9"
+      ]
+    }
+  ],
+  "leaks": [],
+  "calls": 17,
+  "finishedAt": "2026-10-15T20:24:31.530Z",
+  "totals": {
+    "promptTokens": 20066,
+    "completionTokens": 13678,
+    "withheld": 61
+  },
+  "briefs": {
+    "weekly-digest": {
+      "id": "b_98ac1e209d",
+      "skillId": "weekly-digest",
+      "title": "Weekly family brief",
+      "at": "2026-10-15T20:23:41.363Z",
+      "trigger": "manual",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+        "tier": "deep",
+        "thinking": true,
+        "promptTokens": 1531,
+        "completionTokens": 3456,
+        "reasoningChars": 7663,
+        "latencyMs": 9332,
+        "schemaWarnings": 0
+      },
+      "brief": {
+        "headline": "Weekly brief 2026-10-09 to 2026-10-15",
+        "sections": [
+          {
+            "heading": "This week at a glance",
+            "items": [
+              {
+                "text": "She slept better on Thursday.",
+                "cites": [
+                  "N12"
+                ],
+                "flag": "good"
+              },
+              {
+                "text": "Eye drops were given as scheduled each evening.",
+                "cites": [
+                  "N10"
+                ],
+                "flag": "good"
+              },
+              {
+                "text": "Physiotherapy exercises continued on Monday and Thursday.",
+                "cites": [
+                  "N8"
+                ],
+                "flag": "good"
+              },
+              {
+                "text": "She enjoyed a pleasant afternoon sorting photos and ate well.",
+                "cites": [
+                  "N9"
+                ],
+                "flag": "good"
+              }
+            ]
+          },
+          {
+            "heading": "Changes worth noticing",
+            "items": [
+              {
+                "text": "Dizziness or a spinning sensation when standing up was noted on 9 Oct and again on 11 Oct (two notes).",
+                "cites": [
+                  "N8",
+                  "N9"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Ankle puffiness reported on 9 Oct and again on 15 Oct (two notes).",
+                "cites": [
+                  "N8",
+                  "N12"
+                ],
+                "flag": "watch"
+              }
+            ]
+          },
+          {
+            "heading": "Keep an eye on",
+            "items": [
+              {
+                "text": "Recurrent dizziness/spinning sensation – worth asking the GP.",
+                "cites": [
+                  "N8",
+                  "N9"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Recurrent ankle swelling – worth asking the GP or nurse.",
+                "cites": [
+                  "N8",
+                  "N12"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Penicillin allergy needs confirming on file at the new pharmacy.",
+                "cites": [
+                  "N10"
+                ],
+                "flag": "watch"
+              }
+            ]
+          },
+          {
+            "heading": "Who does what next",
+            "items": [
+              {
+                "text": "Pick up second box of amlodipine from pharmacy (overdue).",
+                "cites": [
+                  "N4"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Fix loose rug in hallway (overdue).",
+                "cites": [
+                  "N7"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Ask GP about dizziness at upcoming appointment.",
+                "cites": [
+                  "N9"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Confirm penicillin allergy on pharmacy file.",
+                "cites": [
+                  "N10"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Attend GP appointment on 20 Oct at 10:30.",
+                "cites": [
+                  "N11"
+                ],
+                "flag": "none"
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "text": "Could the dizziness and spinning sensation when standing be related to the new amlodipine or her blood pressure?",
+            "cites": [
+              "N8",
+              "N9",
+              "N10"
+            ]
+          },
+          {
+            "text": "Is the ankle puffiness a known side effect of amlodipine or should it be investigated further?",
+            "cites": [
+              "N8",
+              "N12"
+            ]
+          },
+          {
+            "text": "Is the blood pressure reading of 138/84 within the target range for her?",
+            "cites": [
+              "N10"
+            ]
+          },
+          {
+            "text": "Has the penicillin allergy been recorded at the new pharmacy?",
+            "cites": [
+              "N10"
+            ]
+          },
+          {
+            "text": "Should the eye drops continue for the full prescribed month?",
+            "cites": [
+              "N10",
+              "N12"
+            ]
+          }
+        ],
+        "followUps": [
+          {
+            "title": "Pick up second box of amlodipine from pharmacy",
+            "assignee": "Anouk",
+            "due": "2026-10-09"
+          },
+          {
+            "title": "Fix loose rug in hallway",
+            "assignee": "Bram",
+            "due": "2026-10-08"
+          },
+          {
+            "title": "Ask GP about dizziness at appointment",
+            "assignee": "Anouk",
+            "due": "2026-10-20"
+          },
+          {
+            "title": "Confirm penicillin allergy on pharmacy file",
+            "assignee": "Anouk",
+            "due": "2026-10-20"
+          },
+          {
+            "title": "Attend GP appointment",
+            "assignee": "Mireille",
+            "due": "2026-10-20"
+          }
+        ]
+      },
+      "references": []
+    },
+    "visit-prep": {
+      "id": "b_f201a67141",
+      "skillId": "visit-prep",
+      "title": "Prepare a doctor's visit",
+      "at": "2026-10-15T20:23:41.363Z",
+      "trigger": "manual",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+        "tier": "deep",
+        "thinking": true,
+        "promptTokens": 2232,
+        "completionTokens": 4226,
+        "reasoningChars": 6707,
+        "latencyMs": 11082,
+        "schemaWarnings": 0
+      },
+      "brief": {
+        "headline": "Brief for GP appointment 2026-10-20",
+        "sections": [
+          {
+            "heading": "Medications and recent changes",
+            "items": [
+              {
+                "text": "Eye drops (left eye) started 2026-10-03, administered every evening at 21:00 for one month, prescribed by Dr. Claes.",
+                "cites": [
+                  "N2",
+                  "N10"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Amlodipine 5 mg once daily in the morning started 2026-10-05, first dose taken with breakfast.",
+                "cites": [
+                  "N4",
+                  "N5"
+                ],
+                "flag": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Symptoms and observations since the last visit",
+            "items": [
+              {
+                "text": "Dizziness on standing up: first noted 2026-10-07, also 2026-10-08, 2026-10-09, 2026-10-11; occurs when getting up from chair or standing quickly.",
+                "cites": [
+                  "N6",
+                  "N7",
+                  "N8",
+                  "N9"
+                ],
+                "flag": "ask_clinician"
+              },
+              {
+                "text": "Ankle swelling/puffy ankles: first noted 2026-10-06, also 2026-10-08 (swollen evening), 2026-10-09 (better morning), 2026-10-15 (puffy again).",
+                "cites": [
+                  "N5",
+                  "N7",
+                  "N8",
+                  "N12"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Unsteady on stairs, holding rail with both hands on 2026-10-08.",
+                "cites": [
+                  "N7"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Sleep disturbance: up twice in the night 2026-10-08; slept better 2026-10-15.",
+                "cites": [
+                  "N7",
+                  "N12"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Blood pressure: 162/94 on 2026-10-03 (higher than usual); 138/84 on 2026-10-12.",
+                "cites": [
+                  "N2",
+                  "N10"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Cognition: forgot she had told the same story on 2026-10-04.",
+                "cites": [
+                  "N3"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Reduced mobility: did not want to walk to bakery on 2026-10-07.",
+                "cites": [
+                  "N6"
+                ],
+                "flag": "watch"
+              }
+            ]
+          },
+          {
+            "heading": "Daily functioning",
+            "items": [
+              {
+                "text": "Mobility: uses walker; walked to bakery 15 min 2026-10-02; unsteady on stairs 2026-10-08; dizzy on standing; ankles puffy.",
+                "cites": [
+                  "N1",
+                  "N5",
+                  "N6",
+                  "N7",
+                  "N8",
+                  "N9",
+                  "N12"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Sleep: slept badly 2026-10-08; slept better 2026-10-15.",
+                "cites": [
+                  "N7",
+                  "N12"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Appetite: ate all soup 2026-10-02; ate well 2026-10-11.",
+                "cites": [
+                  "N1",
+                  "N9"
+                ],
+                "flag": "good"
+              },
+              {
+                "text": "Mood: cheerful 2026-10-04; laughed a lot 2026-10-11.",
+                "cites": [
+                  "N3",
+                  "N9"
+                ],
+                "flag": "good"
+              }
+            ]
+          },
+          {
+            "heading": "What the family has already tried",
+            "items": [
+              {
+                "text": "Physiotherapy exercises every Monday and Thursday at 10:00, Anouk helps.",
+                "cites": [
+                  "N8"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Advised to stand up slowly to reduce dizziness.",
+                "cites": [
+                  "N8"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Fixed loose rug in hallway to reduce fall risk.",
+                "cites": [
+                  "N7"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Eye drops administered as prescribed.",
+                "cites": [
+                  "N2",
+                  "N10"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Amlodipine started and taken with breakfast.",
+                "cites": [
+                  "N4",
+                  "N5"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Planned to pick up second box of amlodipine from pharmacy.",
+                "cites": [
+                  "N4"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Ensured penicillin allergy noted at new pharmacy.",
+                "cites": [
+                  "N10"
+                ],
+                "flag": "none"
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "text": "Could the dizziness on standing be related to the new amlodipine or eye drops?",
+            "cites": [
+              "N4",
+              "N2",
+              "N6",
+              "N7",
+              "N8",
+              "N9"
+            ]
+          },
+          {
+            "text": "Is the amlodipine dose appropriate given the blood pressure drop from 162/94 to 138/84?",
+            "cites": [
+              "N2",
+              "N10"
+            ]
+          },
+          {
+            "text": "Should we investigate the ankle swelling (puffy ankles) further?",
+            "cites": [
+              "N5",
+              "N7",
+              "N8",
+              "N12"
+            ]
+          },
+          {
+            "text": "Is the occasional forgetfulness (repeating story) a concern?",
+            "cites": [
+              "N3"
+            ]
+          },
+          {
+            "text": "What fall prevention measures would you recommend given unsteadiness on stairs and dizziness?",
+            "cites": [
+              "N6",
+              "N7",
+              "N8",
+              "N9"
+            ]
+          },
+          {
+            "text": "Should the eye drops continue for the full month as prescribed?",
+            "cites": [
+              "N2",
+              "N10"
+            ]
+          }
+        ],
+        "followUps": [
+          {
+            "title": "Attend GP appointment with Dr. Claes",
+            "assignee": "Anouk",
+            "due": "2026-10-20"
+          },
+          {
+            "title": "Go to market with Bram",
+            "assignee": "Bram",
+            "due": "2026-10-17"
+          },
+          {
+            "title": "Confirm penicillin allergy recorded at new pharmacy",
+            "assignee": "Anouk",
+            "due": "2026-10-16"
+          },
+          {
+            "title": "Continue physiotherapy exercises Monday and Thursday at 10:00",
+            "assignee": "Anouk",
+            "due": "ongoing"
+          }
+        ]
+      },
+      "references": []
+    },
+    "med-check": {
+      "id": "b_8edddf58ab",
+      "skillId": "med-check",
+      "title": "Medication change check",
+      "at": "2026-10-15T20:23:41.363Z",
+      "trigger": "manual",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+        "tier": "deep",
+        "thinking": true,
+        "promptTokens": 2172,
+        "completionTokens": 3339,
+        "reasoningChars": 8840,
+        "latencyMs": 8132,
+        "schemaWarnings": 0
+      },
+      "brief": {
+        "headline": "Medication change check: amlodipine started 2026-10-05",
+        "sections": [
+          {
+            "heading": "What changed",
+            "items": [
+              {
+                "text": "Amlodipine 5 mg once daily in the morning started on 2026-10-05 for blood pressure management.",
+                "cites": [
+                  "N4"
+                ],
+                "flag": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Observed since then",
+            "items": [
+              {
+                "text": "2026-10-05 (0 days): Started amlodipine 5 mg once a day in the morning for blood pressure. First dose taken today with breakfast.",
+                "cites": [
+                  "N4"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "2026-10-06 (1 day): Uses a walker for mobility.",
+                "cites": [
+                  "N5"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "2026-10-06 (1 day): Showered with help, skin fine.",
+                "cites": [
+                  "N5"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "2026-10-06 (1 day): Mentioned ankles feel a bit puffy.",
+                "cites": [
+                  "N5"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "2026-10-07 (2 days): Felt dizzy getting up from armchair after lunch.",
+                "cites": [
+                  "N6"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "2026-10-07 (2 days): Sat down again and dizziness passed after a minute.",
+                "cites": [
+                  "N6"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "2026-10-07 (2 days): Did not want to walk to the bakery today.",
+                "cites": [
+                  "N6"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "2026-10-08 (3 days): Unsteady on stairs, held rail with both hands.",
+                "cites": [
+                  "N7"
+                ],
+                "flag": "watch"
+              }
+            ]
+          }
+        ],
+        "questions": [],
+        "followUps": []
+      },
+      "references": []
+    },
+    "handover": {
+      "id": "b_fb2e2f4e42",
+      "skillId": "handover",
+      "title": "Handover for the next visit",
+      "at": "2026-10-15T20:23:41.363Z",
+      "trigger": "manual",
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1129,
+        "completionTokens": 540,
+        "reasoningChars": 0,
+        "latencyMs": 2937,
+        "schemaWarnings": 0
+      },
+      "brief": {
+        "headline": "Handover for Anouk's visit",
+        "sections": [
+          {
+            "heading": "Since you were last here",
+            "items": [
+              {
+                "text": "She slept better.",
+                "cites": [
+                  "N12"
+                ],
+                "flag": "good"
+              },
+              {
+                "text": "Ankles a bit puffy again.",
+                "cites": [
+                  "N12"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Took her amlodipine.",
+                "cites": [
+                  "N12"
+                ],
+                "flag": "none"
+              },
+              {
+                "text": "Eye drops done yesterday.",
+                "cites": [
+                  "N10"
+                ],
+                "flag": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Due during your visit",
+            "items": [
+              {
+                "text": "Physio exercises at 10:00 today (Thursday).",
+                "cites": [],
+                "flag": "none"
+              },
+              {
+                "text": "Administer eye drops to left eye at 21:00 tonight.",
+                "cites": [],
+                "flag": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Check while you are there",
+            "items": [
+              {
+                "text": "Monitor ankle puffiness.",
+                "cites": [
+                  "N12"
+                ],
+                "flag": "watch"
+              },
+              {
+                "text": "Confirm penicillin allergy is on file at the new pharmacy.",
+                "cites": [
+                  "N10",
+                  "N11"
+                ],
+                "flag": "ask_clinician"
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "text": "Should we ask the GP about the ankle puffiness?",
+            "cites": [
+              "N12"
+            ]
+          },
+          {
+            "text": "Is the dizziness still a concern to discuss with the GP?",
+            "cites": []
+          }
+        ],
+        "followUps": [
+          {
+            "title": "Pick up second box of amlodipine from pharmacy",
+            "assignee": "Anouk",
+            "due": "2026-10-09"
+          },
+          {
+            "title": "Fixed the loose rug in the hallway",
+            "assignee": "Bram",
+            "due": "2026-10-08"
+          },
+          {
+            "title": "Ask the GP about the dizziness",
+            "assignee": "Anouk",
+            "due": "2026-10-20"
+          },
+          {
+            "title": "Ensure penicillin allergy is on file at the new pharmacy",
+            "assignee": "Anouk",
+            "due": "2026-10-20"
+          },
+          {
+            "title": "Attend GP appointment",
+            "assignee": "Mireille",
+            "due": "2026-10-20"
+          }
+        ]
+      },
+      "references": []
+    }
+  },
+  "answer": {
+    "question": "When did the dizziness start, and has anything changed since?",
+    "answer": "The first mention of dizziness was on 2026-10-09 when Sofie noted dizzy again when standing up quickly. Since then, Anouk reported on 2026-10-11 that she still says the room spins a little when she gets up, indicating the dizziness persisted.",
+    "cites": [
+      "N8",
+      "N9"
+    ],
+    "confidence": "medium",
+    "missing": null,
+    "receipt": {
+      "provider": "nebius",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "tier": "fast",
+      "thinking": false,
+      "promptTokens": 1028,
+      "completionTokens": 99,
+      "reasoningChars": 0,
+      "latencyMs": 1232,
+      "schemaWarnings": 0
+    }
+  },
+  "captures": [
+    {
+      "capture": {
+        "summary": "Mum had a good morning walking to the bakery and back with her walker, ate all her soup at lunch, and prefers her coffee with warm milk.",
+        "mood": "good",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "She walked to the bakery with her walker and back, about 15 minutes.",
+            "severity": 0
+          },
+          {
+            "category": "appetite",
+            "text": "Ate all her soup at lunch.",
+            "severity": 0
+          }
+        ],
+        "medications": [],
+        "tasks": [],
+        "routines": [],
+        "appointments": [],
+        "memory": [
+          {
+            "fact": "She likes her coffee with warm milk, never cold.",
+            "kind": "preference"
+          }
+        ]
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1002,
+        "completionTokens": 162,
+        "reasoningChars": 0,
+        "latencyMs": 1741,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "New eye drops started for left eye each evening at 21:00 for one month; blood pressure reading elevated.",
+        "mood": "unknown",
+        "observations": [
+          {
+            "category": "medication",
+            "text": "New eye drops for the left eye every evening at 21:00 for the next month, prescribed by Dr. Claes",
+            "severity": 0
+          },
+          {
+            "category": "other",
+            "text": "Blood pressure 162/94, higher than usual",
+            "severity": 2
+          }
+        ],
+        "medications": [
+          {
+            "name": "eye drops (left eye)",
+            "change": "started",
+            "detail": "Prescribed by Dr. Claes; administered every evening at 21:00 for the next month"
+          }
+        ],
+        "tasks": [],
+        "routines": [
+          {
+            "title": "Administer eye drops to left eye",
+            "time": "21:00",
+            "days": "every day",
+            "assignee": "Sofie"
+          }
+        ],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1004,
+        "completionTokens": 233,
+        "reasoningChars": 0,
+        "latencyMs": 1428,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Bram phoned Mireille. Mireille was cheerful and talked about the neighbour's new dog but repeated a story already told earlier that day.",
+        "mood": "good",
+        "observations": [
+          {
+            "category": "cognition",
+            "text": "Forgot she had already told the same story about the neighbour's new dog on Sunday.",
+            "severity": 1
+          }
+        ],
+        "medications": [],
+        "tasks": [],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 986,
+        "completionTokens": 112,
+        "reasoningChars": 0,
+        "latencyMs": 1496,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Amlodipine 5 mg was started this morning for blood pressure; second box needs pickup on Friday.",
+        "mood": "unknown",
+        "observations": [
+          {
+            "category": "medication",
+            "text": "Started amlodipine 5 mg once a day in the morning for blood pressure. First dose taken today with breakfast.",
+            "severity": 0
+          }
+        ],
+        "medications": [
+          {
+            "name": "amlodipine",
+            "change": "started",
+            "detail": "5 mg once a day in the morning"
+          }
+        ],
+        "tasks": [
+          {
+            "title": "Pick up second box of amlodipine from pharmacy",
+            "due": "2026-10-09",
+            "assignee": "Anouk"
+          }
+        ],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1002,
+        "completionTokens": 180,
+        "reasoningChars": 0,
+        "latencyMs": 1562,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Home nurse reported taking amlodipine with breakfast, showering with help, and noting puffy ankles.",
+        "mood": "unknown",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "uses a walker",
+            "severity": 0
+          },
+          {
+            "category": "hygiene",
+            "text": "Showered with help, skin fine",
+            "severity": 0
+          },
+          {
+            "category": "other",
+            "text": "She mentioned her ankles feel a bit puffy",
+            "severity": 1
+          }
+        ],
+        "medications": [
+          {
+            "name": "amlodipine",
+            "change": "taken",
+            "detail": "Taken with breakfast"
+          }
+        ],
+        "tasks": [],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 990,
+        "completionTokens": 168,
+        "reasoningChars": 0,
+        "latencyMs": 1148,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Mireille felt dizzy getting up from the armchair after lunch, sat down again and it passed after a minute, did not want to walk to the bakery.",
+        "mood": "unknown",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "felt dizzy getting up from the armchair after lunch",
+            "severity": 2
+          },
+          {
+            "category": "mobility",
+            "text": "sat down again and it passed after a minute",
+            "severity": 1
+          },
+          {
+            "category": "social",
+            "text": "did not want to walk to the bakery today",
+            "severity": 1
+          }
+        ],
+        "medications": [],
+        "tasks": [],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 990,
+        "completionTokens": 165,
+        "reasoningChars": 0,
+        "latencyMs": 1192,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "During weekend visit, fixed loose rug in hallway; mum was unsteady on stairs holding rail with both hands; slept badly, up twice in night.",
+        "mood": "mixed",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "Mum was a bit unsteady on the stairs and held the rail with both hands.",
+            "severity": 2
+          },
+          {
+            "category": "sleep",
+            "text": "Slept badly, up twice in the night.",
+            "severity": 2
+          }
+        ],
+        "medications": [],
+        "tasks": [
+          {
+            "title": "Fixed the loose rug in the hallway",
+            "due": "2026-10-08",
+            "assignee": "Bram"
+          }
+        ],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 995,
+        "completionTokens": 176,
+        "reasoningChars": 0,
+        "latencyMs": 1822,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Home nurse reports ankle swelling improved overnight but dizziness on standing persists; advised slow rising. Physio scheduled Mondays and Thursdays at 10:00 with daughter assistance.",
+        "mood": "mixed",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "ankles swollen yesterday evening, better this morning",
+            "severity": 1
+          },
+          {
+            "category": "mobility",
+            "text": "dizzy again when standing up quickly",
+            "severity": 2
+          }
+        ],
+        "medications": [],
+        "tasks": [],
+        "routines": [
+          {
+            "title": "Physio exercises",
+            "time": "10:00",
+            "days": "Monday,Thursday",
+            "assignee": "Anouk"
+          }
+        ],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1006,
+        "completionTokens": 176,
+        "reasoningChars": 0,
+        "latencyMs": 1341,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Anouk spent a lovely afternoon sorting old photos with Mireille, who laughed a lot and ate well. Mireille still reports the room spinning a little when getting up.",
+        "mood": "good",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "says the room spins a little when she gets up",
+            "severity": 1
+          }
+        ],
+        "medications": [],
+        "tasks": [
+          {
+            "title": "ask the GP about the dizziness",
+            "due": null,
+            "assignee": "Anouk"
+          }
+        ],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 998,
+        "completionTokens": 140,
+        "reasoningChars": 0,
+        "latencyMs": 1119,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Home nurse recorded blood pressure reading, administered eye drops, and reminded about penicillin allergy for pharmacy records.",
+        "mood": "unknown",
+        "observations": [
+          {
+            "category": "medication",
+            "text": "Eye drops done",
+            "severity": 0
+          }
+        ],
+        "medications": [],
+        "tasks": [
+          {
+            "title": "Ensure penicillin allergy is on file at the new pharmacy",
+            "due": null,
+            "assignee": "Anouk"
+          }
+        ],
+        "routines": [],
+        "appointments": [],
+        "memory": [
+          {
+            "fact": "She is allergic to penicillin",
+            "kind": "medical"
+          }
+        ]
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 989,
+        "completionTokens": 133,
+        "reasoningChars": 0,
+        "latencyMs": 1110,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "GP appointment scheduled for next Tuesday at 10:30 with Dr. Claes. Anouk will accompany Mireille, and a taxi will pick her up at Vaartstraat 12 at 10:00.",
+        "mood": "unknown",
+        "observations": [],
+        "medications": [],
+        "tasks": [
+          {
+            "title": "Attend GP appointment",
+            "due": "2026-10-20",
+            "assignee": "Mireille"
+          }
+        ],
+        "routines": [],
+        "appointments": [
+          {
+            "title": "GP appointment with Dr. Claes",
+            "date": "2026-10-20",
+            "time": "10:30",
+            "with": "Dr. Claes"
+          }
+        ],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1016,
+        "completionTokens": 180,
+        "reasoningChars": 0,
+        "latencyMs": 1561,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "She slept better but ankles were a bit puffy again. Took her amlodipine. Wants to go to the market on Saturday with Bram.",
+        "mood": "good",
+        "observations": [
+          {
+            "category": "sleep",
+            "text": "She slept better.",
+            "severity": 0
+          },
+          {
+            "category": "mobility",
+            "text": "Ankles a bit puffy again.",
+            "severity": 1
+          }
+        ],
+        "medications": [
+          {
+            "name": "amlodipine",
+            "change": "taken",
+            "detail": "Took her amlodipine."
+          }
+        ],
+        "tasks": [],
+        "routines": [],
+        "appointments": [
+          {
+            "title": "Go to the market",
+            "date": "2026-10-17",
+            "time": "",
+            "with": "Bram"
+          }
+        ],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 996,
+        "completionTokens": 193,
+        "reasoningChars": 0,
+        "latencyMs": 1885,
+        "schemaWarnings": 0
+      }
+    }
+  ]
+}
