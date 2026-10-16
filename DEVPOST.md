@@ -84,9 +84,9 @@ Mireille is.
 - **Plain Node.js 22 with zero npm dependencies**, a strict Content Security Policy, an
   AES-256-GCM vault and a household passcode for private installs, per-visitor sandboxes and call
   budgets for the public demo, an iCalendar feed, and a Docker image.
-- **Tested on the real thing**: 28 offline tests (including a local stand-in for Token Factory
+- **Tested on the real thing**: 29 offline tests (including a local stand-in for Token Factory
   that produces timeouts, refused keys, outages and broken JSON on demand), a 40-check end-to-end
-  run over HTTP against the live API, and a 33-check browser click-through on desktop and phone
+  run over HTTP against the live API, and a 34-check browser click-through on desktop and phone
   sizes.
 
 ## Challenges we ran into

@@ -2,6 +2,8 @@
 
 - **Models**: NVIDIA Nemotron 3 Super and Nemotron 3 Ultra (NVIDIA open models), served by
   Nebius Token Factory.
+- **Reference lookup**: Tavily Search API (free plan), restricted to MedlinePlus, NHS, EMA,
+  Mayo Clinic and drugs.com; only a medication name is sent.
 - **Fonts** (SIL Open Font License 1.1, self-hosted): Atkinson Hyperlegible Next (Braille
   Institute of America), Newsreader (Production Type). See `public/fonts/LICENSE-FONTS.md`.
 - **Icons and logo mark**: drawn for this project (inline SVG), MIT with the rest of the repo.

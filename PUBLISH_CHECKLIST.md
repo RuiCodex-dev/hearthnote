@@ -7,7 +7,7 @@ Nothing below has been done. Each numbered step needs the owner's approval, in t
 
 ## 0. Before every step
 
-- [ ] `npm test` passes (28 tests, offline) and `npm run e2e` passes (40 checks, real API).
+- [ ] `npm test` passes (29 tests, offline) and `npm run e2e` passes (40 checks, real API).
 - [ ] `npm run secret-scan` is clean (tracked + untracked files and the whole git history,
       checked against every value in `~/.ruicodex-keys/*.json` and common key shapes).
 - [ ] `git ls-files data .env design/gen video/work` prints nothing.

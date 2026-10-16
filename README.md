@@ -83,7 +83,7 @@ cheap, the careful reasoning goes to the big model.
 Requirements: Node.js 22+. No npm dependencies.
 
 ```sh
-npm test                       # 28 tests, offline (a local stand-in plays Token Factory for the failure cases)
+npm test                       # 29 tests, offline (a local stand-in plays Token Factory for the failure cases)
 npm start                      # http://localhost:8080 - demo mode, offline mock if no key
 ```
 
@@ -132,9 +132,9 @@ docker run -p 8080:8080 --env-file .env -e HEARTH_MODE=private -v hn:/app/data h
 
 | What | Command | Result (16 October 2026) |
 | --- | --- | --- |
-| Unit and API tests, offline | `npm test` | 28 / 28 |
+| Unit and API tests, offline | `npm test` | 29 / 29 |
 | End to end over HTTP against the real Token Factory API (every route, every skill, empty and 4,000-character input, red flags, an unanswerable question, a refused key) | `npm run e2e` | 40 / 40, 10 model calls, about USD 0.04 ([`qa/e2e-live-2026-10-16.json`](qa/e2e-live-2026-10-16.json)) |
-| Browser click-through of every control, desktop and phone, failing on any console error or 5xx | `python scripts/ui_check.py <url>` | 33 / 33 |
+| Browser click-through of every control, desktop and phone, failing on any console error or 5xx | `python scripts/ui_check.py <url>` | 34 / 34 |
 | No secrets in the tree or the history | `npm run secret-scan`, `gitleaks git` | clean |
 
 QA log: [`qa/QA-2026-10-16.md`](qa/QA-2026-10-16.md).
