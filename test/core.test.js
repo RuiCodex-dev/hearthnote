@@ -108,3 +108,12 @@ test("week key is ISO", () => {
   assert.equal(weekKey(new Date("2026-10-15T12:00:00Z"), "Europe/Brussels"), "2026-W42");
   assert.equal(weekKey(new Date("2027-01-01T12:00:00Z"), "Europe/Brussels"), "2026-W53");
 });
+
+test("the demo opens with at least one fact waiting for a person's OK", async () => {
+  const { demoHousehold } = await import("../server/seed/demo.js");
+  for (const day of ["2026-10-15T09:00:00Z", "2026-10-16T09:00:00Z", "2026-10-21T20:00:00Z"]) {
+    const h = demoHousehold(new Date(day));
+    assert.ok(h.memory.some((f) => f.status === "proposed"), `no proposed fact on ${day}`);
+    assert.ok(h.memory.some((f) => f.status === "confirmed"), `no confirmed fact on ${day}`);
+  }
+});

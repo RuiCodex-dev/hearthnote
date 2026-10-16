@@ -81,8 +81,12 @@ export function demoHousehold(now = new Date()) {
   });
   // Steady state: older proposals have been reviewed by the family; the last few days are
   // still waiting, so a visitor sees both confirmed memory and the confirm flow.
+  // Facts wait a little longer than routines: Nemotron proposes few long-term facts (it only
+  // keeps what is stable, such as an allergy), so a four-day window keeps at least one of them
+  // waiting for a person's OK when the demo opens.
   const cutoff = new Date(anchor - 2 * DAY).toISOString();
-  for (const f of h.memory) if (f.at < cutoff) f.status = "confirmed";
+  const factCutoff = new Date(anchor - 4 * DAY).toISOString();
+  for (const f of h.memory) if (f.at < factCutoff) f.status = "confirmed";
   for (const r of h.routines) if ((h.notes.find((n) => n.id === r.noteId)?.at || "") < cutoff) r.status = "active";
   for (const t of h.tasks) if (/pick up the second box/i.test(t.title)) t.done = true;
   return h;
