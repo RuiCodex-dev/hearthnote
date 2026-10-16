@@ -135,7 +135,7 @@ if (!mock) {
     `> ${answer.answer}`,
     "",
     `Full outputs: \`evidence/live-check-${day}.json\`. The household is the fictional demo household; no real person's data was sent.`,
-  ].filter((l) => l !== "").join("\n").replace(/\n(#|>|\||-)/g, "\n$1");
+  ].join("\n").replace(/\n{3,}/g, "\n\n");
   writeFileSync(join(dir, "LIVE_CHECK.md"), md + "\n");
 }
 console.log(`\n${calls} calls; leaks ${evidence.leaks.length}; tokens ${evidence.totals.promptTokens}/${evidence.totals.completionTokens}; evidence in evidence/live-check-${tag}.json`);

@@ -6,11 +6,35 @@ import { addMember, addNote, snapshot, uid } from "./care/household.js";
 import { buildIcs } from "./care/ics.js";
 import { makeCustomSkill } from "./care/skills.js";
 import { EMERGENCY_ADVICE } from "./privacy/safety.js";
+import { LlmError } from "./llm/provider.js";
 
 export class HttpError extends Error {
   constructor(status, message) {
     super(message);
     this.status = status;
+  }
+}
+
+// A model call that fails (timeout, Token Factory unavailable, a rejected key) is reported as
+// 502 with a sentence a family can act on; the cause stays in the server log, never a key.
+export function modelFailure(err) {
+  if (err instanceof HttpError) return err;
+  if (err instanceof LlmError) {
+    console.warn(`[hearthnote] model call failed: ${err.message}`);
+    const why = err.kind === "timeout" ? "Nemotron took too long to answer" : err.kind === "auth" ? "the Token Factory key was refused" : "Nemotron on Token Factory could not be reached";
+    return new HttpError(502, `${why}. Nothing was lost; please try again in a moment.`);
+  }
+  return err;
+}
+
+// Input problems found below the HTTP layer (an empty note, a skill without instructions)
+// become 400s instead of a generic 500.
+function badInput(fn) {
+  try {
+    return fn();
+  } catch (err) {
+    if (err instanceof HttpError) throw err;
+    throw new HttpError(400, err.message);
   }
 }
 
@@ -98,7 +122,7 @@ export function createApp({ config, runner, store, resolved }) {
     if (path === "/api/notes" && method === "POST") {
       // Two steps on purpose: the note is saved and checked for red flags instantly, offline;
       // reading it with the model is a second request the client makes right after.
-      const note = addNote(h, { text: body?.text, authorId: body?.authorId, source: body?.source === "voice" ? "voice" : "text" });
+      const note = badInput(() => addNote(h, { text: body?.text, authorId: body?.authorId, source: body?.source === "voice" ? "voice" : "text" }));
       return done({ noteId: note.id, flags: note.flags });
     }
 
@@ -142,13 +166,20 @@ export function createApp({ config, runner, store, resolved }) {
     }
 
     if ((m = path.match(/^\/api\/skills\/([\w-]+)\/run$/)) && method === "POST") {
-      const brief = await runner.brief(h, m[1], opts);
+      if (!runner.get(h, m[1]) || runner.get(h, m[1]).output !== "brief") throw new HttpError(404, "no such skill");
+      let brief;
+      try {
+        brief = await runner.brief(h, m[1], opts);
+      } catch (err) {
+        store.save(h);
+        throw modelFailure(err);
+      }
       return done({ briefId: brief.id });
     }
 
     if (path === "/api/skills" && method === "POST") {
       if ((h.customSkills || []).length >= 12) throw new HttpError(400, "That is a lot of skills already.");
-      const skill = makeCustomSkill(body || {});
+      const skill = badInput(() => makeCustomSkill(body || {}));
       h.customSkills.push(skill);
       return done({ skillId: skill.id });
     }
@@ -159,7 +190,15 @@ export function createApp({ config, runner, store, resolved }) {
     }
 
     if (path === "/api/ask" && method === "POST") {
-      const answer = await runner.ask(h, body?.question, opts);
+      const question = String(body?.question || "").trim();
+      if (question.length < 3) throw new HttpError(400, "Please type a question.");
+      let answer;
+      try {
+        answer = await runner.ask(h, question, opts);
+      } catch (err) {
+        store.save(h);
+        throw modelFailure(err);
+      }
       store.save(h);
       return reply(200, { answer, state: stateBody(h, session) });
     }

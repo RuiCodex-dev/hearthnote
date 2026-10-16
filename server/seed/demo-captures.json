@@ -1,0 +1,485 @@
+{
+  "bakeDate": "2026-10-15",
+  "fastModel": "nvidia/nemotron-3-super-120b-a12b",
+  "captures": [
+    {
+      "capture": {
+        "summary": "Mum had a good morning walking to the bakery and back with her walker, ate all her soup at lunch, and prefers her coffee with warm milk.",
+        "mood": "good",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "She walked to the bakery with her walker and back, about 15 minutes.",
+            "severity": 0
+          },
+          {
+            "category": "appetite",
+            "text": "Ate all her soup at lunch.",
+            "severity": 0
+          }
+        ],
+        "medications": [],
+        "tasks": [],
+        "routines": [],
+        "appointments": [],
+        "memory": [
+          {
+            "fact": "She likes her coffee with warm milk, never cold.",
+            "kind": "preference"
+          }
+        ]
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1002,
+        "completionTokens": 162,
+        "reasoningChars": 0,
+        "latencyMs": 1741,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "New eye drops started for left eye each evening at 21:00 for one month; blood pressure reading elevated.",
+        "mood": "unknown",
+        "observations": [
+          {
+            "category": "medication",
+            "text": "New eye drops for the left eye every evening at 21:00 for the next month, prescribed by Dr. Claes",
+            "severity": 0
+          },
+          {
+            "category": "other",
+            "text": "Blood pressure 162/94, higher than usual",
+            "severity": 2
+          }
+        ],
+        "medications": [
+          {
+            "name": "eye drops (left eye)",
+            "change": "started",
+            "detail": "Prescribed by Dr. Claes; administered every evening at 21:00 for the next month"
+          }
+        ],
+        "tasks": [],
+        "routines": [
+          {
+            "title": "Administer eye drops to left eye",
+            "time": "21:00",
+            "days": "every day",
+            "assignee": "Sofie"
+          }
+        ],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1004,
+        "completionTokens": 233,
+        "reasoningChars": 0,
+        "latencyMs": 1428,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Bram phoned Mireille. Mireille was cheerful and talked about the neighbour's new dog but repeated a story already told earlier that day.",
+        "mood": "good",
+        "observations": [
+          {
+            "category": "cognition",
+            "text": "Forgot she had already told the same story about the neighbour's new dog on Sunday.",
+            "severity": 1
+          }
+        ],
+        "medications": [],
+        "tasks": [],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 986,
+        "completionTokens": 112,
+        "reasoningChars": 0,
+        "latencyMs": 1496,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Amlodipine 5 mg was started this morning for blood pressure; second box needs pickup on Friday.",
+        "mood": "unknown",
+        "observations": [
+          {
+            "category": "medication",
+            "text": "Started amlodipine 5 mg once a day in the morning for blood pressure. First dose taken today with breakfast.",
+            "severity": 0
+          }
+        ],
+        "medications": [
+          {
+            "name": "amlodipine",
+            "change": "started",
+            "detail": "5 mg once a day in the morning"
+          }
+        ],
+        "tasks": [
+          {
+            "title": "Pick up second box of amlodipine from pharmacy",
+            "due": "2026-10-09",
+            "assignee": "Anouk"
+          }
+        ],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1002,
+        "completionTokens": 180,
+        "reasoningChars": 0,
+        "latencyMs": 1562,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Home nurse reported taking amlodipine with breakfast, showering with help, and noting puffy ankles.",
+        "mood": "unknown",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "uses a walker",
+            "severity": 0
+          },
+          {
+            "category": "hygiene",
+            "text": "Showered with help, skin fine",
+            "severity": 0
+          },
+          {
+            "category": "other",
+            "text": "She mentioned her ankles feel a bit puffy",
+            "severity": 1
+          }
+        ],
+        "medications": [
+          {
+            "name": "amlodipine",
+            "change": "taken",
+            "detail": "Taken with breakfast"
+          }
+        ],
+        "tasks": [],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 990,
+        "completionTokens": 168,
+        "reasoningChars": 0,
+        "latencyMs": 1148,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Mireille felt dizzy getting up from the armchair after lunch, sat down again and it passed after a minute, did not want to walk to the bakery.",
+        "mood": "unknown",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "felt dizzy getting up from the armchair after lunch",
+            "severity": 2
+          },
+          {
+            "category": "mobility",
+            "text": "sat down again and it passed after a minute",
+            "severity": 1
+          },
+          {
+            "category": "social",
+            "text": "did not want to walk to the bakery today",
+            "severity": 1
+          }
+        ],
+        "medications": [],
+        "tasks": [],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 990,
+        "completionTokens": 165,
+        "reasoningChars": 0,
+        "latencyMs": 1192,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "During weekend visit, fixed loose rug in hallway; mum was unsteady on stairs holding rail with both hands; slept badly, up twice in night.",
+        "mood": "mixed",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "Mum was a bit unsteady on the stairs and held the rail with both hands.",
+            "severity": 2
+          },
+          {
+            "category": "sleep",
+            "text": "Slept badly, up twice in the night.",
+            "severity": 2
+          }
+        ],
+        "medications": [],
+        "tasks": [
+          {
+            "title": "Fixed the loose rug in the hallway",
+            "due": "2026-10-08",
+            "assignee": "Bram"
+          }
+        ],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 995,
+        "completionTokens": 176,
+        "reasoningChars": 0,
+        "latencyMs": 1822,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Home nurse reports ankle swelling improved overnight but dizziness on standing persists; advised slow rising. Physio scheduled Mondays and Thursdays at 10:00 with daughter assistance.",
+        "mood": "mixed",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "ankles swollen yesterday evening, better this morning",
+            "severity": 1
+          },
+          {
+            "category": "mobility",
+            "text": "dizzy again when standing up quickly",
+            "severity": 2
+          }
+        ],
+        "medications": [],
+        "tasks": [],
+        "routines": [
+          {
+            "title": "Physio exercises",
+            "time": "10:00",
+            "days": "Monday,Thursday",
+            "assignee": "Anouk"
+          }
+        ],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1006,
+        "completionTokens": 176,
+        "reasoningChars": 0,
+        "latencyMs": 1341,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Anouk spent a lovely afternoon sorting old photos with Mireille, who laughed a lot and ate well. Mireille still reports the room spinning a little when getting up.",
+        "mood": "good",
+        "observations": [
+          {
+            "category": "mobility",
+            "text": "says the room spins a little when she gets up",
+            "severity": 1
+          }
+        ],
+        "medications": [],
+        "tasks": [
+          {
+            "title": "ask the GP about the dizziness",
+            "due": null,
+            "assignee": "Anouk"
+          }
+        ],
+        "routines": [],
+        "appointments": [],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 998,
+        "completionTokens": 140,
+        "reasoningChars": 0,
+        "latencyMs": 1119,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "Home nurse recorded blood pressure reading, administered eye drops, and reminded about penicillin allergy for pharmacy records.",
+        "mood": "unknown",
+        "observations": [
+          {
+            "category": "medication",
+            "text": "Eye drops done",
+            "severity": 0
+          }
+        ],
+        "medications": [],
+        "tasks": [
+          {
+            "title": "Ensure penicillin allergy is on file at the new pharmacy",
+            "due": null,
+            "assignee": "Anouk"
+          }
+        ],
+        "routines": [],
+        "appointments": [],
+        "memory": [
+          {
+            "fact": "She is allergic to penicillin",
+            "kind": "medical"
+          }
+        ]
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 989,
+        "completionTokens": 133,
+        "reasoningChars": 0,
+        "latencyMs": 1110,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "GP appointment scheduled for next Tuesday at 10:30 with Dr. Claes. Anouk will accompany Mireille, and a taxi will pick her up at Vaartstraat 12 at 10:00.",
+        "mood": "unknown",
+        "observations": [],
+        "medications": [],
+        "tasks": [
+          {
+            "title": "Attend GP appointment",
+            "due": "2026-10-20",
+            "assignee": "Mireille"
+          }
+        ],
+        "routines": [],
+        "appointments": [
+          {
+            "title": "GP appointment with Dr. Claes",
+            "date": "2026-10-20",
+            "time": "10:30",
+            "with": "Dr. Claes"
+          }
+        ],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 1016,
+        "completionTokens": 180,
+        "reasoningChars": 0,
+        "latencyMs": 1561,
+        "schemaWarnings": 0
+      }
+    },
+    {
+      "capture": {
+        "summary": "She slept better but ankles were a bit puffy again. Took her amlodipine. Wants to go to the market on Saturday with Bram.",
+        "mood": "good",
+        "observations": [
+          {
+            "category": "sleep",
+            "text": "She slept better.",
+            "severity": 0
+          },
+          {
+            "category": "mobility",
+            "text": "Ankles a bit puffy again.",
+            "severity": 1
+          }
+        ],
+        "medications": [
+          {
+            "name": "amlodipine",
+            "change": "taken",
+            "detail": "Took her amlodipine."
+          }
+        ],
+        "tasks": [],
+        "routines": [],
+        "appointments": [
+          {
+            "title": "Go to the market",
+            "date": "2026-10-17",
+            "time": "",
+            "with": "Bram"
+          }
+        ],
+        "memory": []
+      },
+      "receipt": {
+        "provider": "nebius",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "tier": "fast",
+        "thinking": false,
+        "promptTokens": 996,
+        "completionTokens": 193,
+        "reasoningChars": 0,
+        "latencyMs": 1885,
+        "schemaWarnings": 0
+      }
+    }
+  ]
+}

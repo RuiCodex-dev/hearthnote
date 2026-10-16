@@ -6,12 +6,15 @@
   "license": "MIT",
   "author": "Rui Codex",
   "private": true,
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "start": "node server/main.js",
     "dev": "node --watch server/main.js",
     "test": "node --test test/*.test.js",
     "secret-scan": "node scripts/secret-scan.mjs",
-    "live-check": "node scripts/live-check.mjs"
+    "live-check": "node scripts/live-check.mjs",
+    "e2e": "node scripts/e2e-live.mjs"
   }
 }

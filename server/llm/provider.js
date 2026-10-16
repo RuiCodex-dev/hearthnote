@@ -5,10 +5,12 @@ import { extractJson, stripReasoning, toApiSchema, validate } from "./json.js";
 import { createMockProvider } from "./mock.js";
 
 export class LlmError extends Error {
-  constructor(message, { status, retryable } = {}) {
+  constructor(message, { status, retryable, kind = "error" } = {}) {
     super(message);
+    this.name = "LlmError";
     this.status = status;
     this.retryable = Boolean(retryable);
+    this.kind = status === 401 || status === 403 ? "auth" : kind;
   }
 }
 
@@ -76,6 +78,7 @@ class NebiusProvider {
     ];
     const started = Date.now();
     let lastErr;
+    let networkRetries = 0;
     for (let attempt = 0; attempt < 4; attempt++) {
       const body = { model, messages, temperature, max_tokens: thinking ? maxTokens + 2500 : maxTokens };
       if (feat.format === "json_schema") body.response_format = { type: "json_schema", json_schema: { name: schemaName, schema: toApiSchema(schema) } };
@@ -90,8 +93,13 @@ class NebiusProvider {
           signal: AbortSignal.timeout(this.cfg.timeoutMs),
         });
       } catch (err) {
-        lastErr = new LlmError(`network error: ${err.name}`, { retryable: true });
-        await sleep(800 * (attempt + 1));
+        // A timeout is not retried: the family has already waited the whole timeout, and a
+        // second identical request would most likely time out too. Other network errors
+        // (reset, DNS hiccup) get one quick retry.
+        if (err.name === "TimeoutError" || err.name === "AbortError") throw new LlmError(`timed out after ${this.cfg.timeoutMs} ms`, { kind: "timeout" });
+        lastErr = new LlmError(`network error: ${err.name}`, { retryable: true, kind: "network" });
+        if (networkRetries++ >= 1) throw lastErr;
+        await sleep(800);
         continue;
       }
       if (res.status === 400 || res.status === 422) {

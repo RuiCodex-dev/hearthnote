@@ -1,5 +1,5 @@
 // Builds the fictional demo household for a new visitor sandbox. Note captures were produced
-// once by Nemotron on Token Factory (scripts/bake-demo.mjs) and stored in demo-captures.json,
+// once by Nemotron on Token Factory (scripts/live-check.mjs) and stored in demo-captures.json,
 // so a new visitor does not spend twelve model calls before seeing anything. If that file is
 // missing, the offline mock fills in.
 import { existsSync, readFileSync } from "node:fs";

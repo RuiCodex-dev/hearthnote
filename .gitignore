@@ -14,3 +14,4 @@ video/*.mp4
 video/hyperframes/assets/clips/
 video/hyperframes/assets/audio/
 video/hyperframes/.hyperframes/
+qa/e2e-live-mock.json

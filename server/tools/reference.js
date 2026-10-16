@@ -11,14 +11,21 @@ export function createReferenceLookup({ apiKey, fetchImpl = globalThis.fetch } =
     const name = String(medication || "").toLowerCase().replace(/[^a-z0-9 -]/g, "").trim().slice(0, 40);
     if (!name) return [];
     if (cache.has(name)) return cache.get(name);
-    const res = await fetchImpl("https://api.tavily.com/search", {
-      method: "POST",
-      headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({ query: `${name} common side effects`, search_depth: "basic", include_domains: DOMAINS, max_results: 4 }),
-      signal: AbortSignal.timeout(20_000),
-    });
-    if (!res.ok) return [];
-    const data = await res.json();
+    // The lookup is a nice-to-have: if Tavily is slow or down, the medication check still
+    // runs, just without reference snippets.
+    let data;
+    try {
+      const res = await fetchImpl("https://api.tavily.com/search", {
+        method: "POST",
+        headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify({ query: `${name} common side effects`, search_depth: "basic", include_domains: DOMAINS, max_results: 4 }),
+        signal: AbortSignal.timeout(20_000),
+      });
+      if (!res.ok) return [];
+      data = await res.json();
+    } catch {
+      return [];
+    }
     const refs = (data.results || []).slice(0, 4).map((r, i) => ({
       id: `S${i + 1}`,
       title: String(r.title || "").slice(0, 120),

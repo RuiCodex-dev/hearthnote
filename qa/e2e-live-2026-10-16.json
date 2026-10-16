@@ -1,0 +1,320 @@
+{
+  "ranAt": "2026-10-16T06:34:54.743Z",
+  "provider": "nebius",
+  "models": {
+    "fast": "nvidia/nemotron-3-super-120b-a12b",
+    "deep": "nvidia/Nemotron-3-Ultra-550b-a55b"
+  },
+  "checks": [
+    {
+      "name": "health reports the provider",
+      "ok": true,
+      "detail": "{\"ok\":true,\"provider\":\"nebius\",\"mode\":\"demo\"}"
+    },
+    {
+      "name": "a new visitor gets a seeded sandbox (12 notes, no model call)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seeded captures come from the bake, not the mock",
+      "ok": true,
+      "detail": "nvidia/nemotron-3-super-120b-a12b"
+    },
+    {
+      "name": "no key material in the state",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strict CSP on every response",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "the web app loads",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "empty note -> 400",
+      "ok": true,
+      "detail": "note is empty"
+    },
+    {
+      "name": "empty question -> 400",
+      "ok": true,
+      "detail": "Please type a question."
+    },
+    {
+      "name": "unknown skill -> 404",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "oversized body -> 413",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "edge cases spent no model calls",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "note saved instantly without the model",
+      "ok": true,
+      "detail": "5 ms"
+    },
+    {
+      "name": "capture files the note",
+      "ok": true,
+      "detail": "1698 ms; obs 2, tasks 1, meds 1"
+    },
+    {
+      "name": "capture finds the hearing-aid task",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "capture records a mobility/dizziness observation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "emergency flagged offline before the model",
+      "ok": true,
+      "detail": "[{\"id\":\"head\",\"label\":\"fall with a head injury\"}]"
+    },
+    {
+      "name": "red-flag note is still filed",
+      "ok": true,
+      "detail": "821 ms"
+    },
+    {
+      "name": "long note truncated to 4,000 chars and filed",
+      "ok": true,
+      "detail": "1213 ms"
+    },
+    {
+      "name": "a confirmed fact can be confirmed and edited",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a routine can be accepted",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a task can be ticked off",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "bad status values are refused",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a member can join the circle",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a private word can be added",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "calendar feed serves VEVENTs",
+      "ok": true,
+      "detail": "7 events"
+    },
+    {
+      "name": "a wrong calendar token is 404",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "export downloads the household without the ledger",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "skill weekly-digest writes a cited brief",
+      "ok": true,
+      "detail": "31357 ms, 4 sections, 30 citations, 5 questions"
+    },
+    {
+      "name": "skill visit-prep writes a cited brief",
+      "ok": true,
+      "detail": "13916 ms, 4 sections, 52 citations, 6 questions"
+    },
+    {
+      "name": "skill med-check writes a cited brief",
+      "ok": true,
+      "detail": "14900 ms, 4 sections, 20 citations, 4 questions"
+    },
+    {
+      "name": "skill handover writes a cited brief",
+      "ok": true,
+      "detail": "4113 ms, 3 sections, 8 citations, 2 questions"
+    },
+    {
+      "name": "a family-written skill can be saved",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "the custom skill runs on the fast tier",
+      "ok": true,
+      "detail": "5105 ms"
+    },
+    {
+      "name": "a custom skill can be deleted",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "ask answers from the notes with citations",
+      "ok": true,
+      "detail": "1116 ms: The dizziness was first mentioned on 2026-10-09."
+    },
+    {
+      "name": "ask admits when the notes do not say",
+      "ok": true,
+      "detail": "high: The log does not mention her favourite film."
+    },
+    {
+      "name": "no real name, street or phone number in any outbound prompt",
+      "ok": true,
+      "detail": "10 prompts, 79 names/identifiers withheld"
+    },
+    {
+      "name": "budget counter matches the calls made",
+      "ok": true,
+      "detail": "10 used, 10 ledger entries"
+    },
+    {
+      "name": "Start over restores the demo household",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a refused key fails fast with an auth error",
+      "ok": true,
+      "detail": "Token Factory error (401) in 34 ms"
+    }
+  ],
+  "passed": 40,
+  "failed": 0,
+  "modelCalls": 10,
+  "tokens": {
+    "prompt": 23791,
+    "completion": 11076
+  },
+  "estimatedCostUsd": 0.0436,
+  "receipts": [
+    {
+      "step": "capture (ordinary note)",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "tier": "fast",
+      "thinking": false,
+      "latencyMs": 1677,
+      "promptTokens": 1069,
+      "completionTokens": 213,
+      "schemaWarnings": 0
+    },
+    {
+      "step": "capture (red-flag note)",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "tier": "fast",
+      "thinking": false,
+      "latencyMs": 816,
+      "promptTokens": 1037,
+      "completionTokens": 81,
+      "schemaWarnings": 0
+    },
+    {
+      "step": "capture (4,000-character note)",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "tier": "fast",
+      "thinking": false,
+      "latencyMs": 1209,
+      "promptTokens": 1983,
+      "completionTokens": 156,
+      "schemaWarnings": 0
+    },
+    {
+      "step": "skill weekly-digest",
+      "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+      "tier": "deep",
+      "thinking": true,
+      "latencyMs": 31345,
+      "promptTokens": 3005,
+      "completionTokens": 3013,
+      "schemaWarnings": 0
+    },
+    {
+      "step": "skill visit-prep",
+      "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+      "tier": "deep",
+      "thinking": true,
+      "latencyMs": 13894,
+      "promptTokens": 3540,
+      "completionTokens": 2920,
+      "schemaWarnings": 0
+    },
+    {
+      "step": "skill med-check",
+      "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+      "tier": "deep",
+      "thinking": true,
+      "latencyMs": 14888,
+      "promptTokens": 3480,
+      "completionTokens": 3351,
+      "schemaWarnings": 0
+    },
+    {
+      "step": "skill handover",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "tier": "fast",
+      "thinking": false,
+      "latencyMs": 4104,
+      "promptTokens": 2434,
+      "completionTokens": 515,
+      "schemaWarnings": 0
+    },
+    {
+      "step": "custom skill",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "tier": "fast",
+      "thinking": false,
+      "latencyMs": 5095,
+      "promptTokens": 3645,
+      "completionTokens": 734,
+      "schemaWarnings": 0
+    },
+    {
+      "step": "ask (answerable)",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "tier": "fast",
+      "thinking": false,
+      "latencyMs": 1108,
+      "promptTokens": 1933,
+      "completionTokens": 49,
+      "schemaWarnings": 0
+    },
+    {
+      "step": "ask (unanswerable)",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "tier": "fast",
+      "thinking": false,
+      "latencyMs": 865,
+      "promptTokens": 1665,
+      "completionTokens": 44,
+      "schemaWarnings": 0
+    }
+  ]
+}
