@@ -81,6 +81,30 @@ export function localClock(date, timezone) {
   return { weekday: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(parts.weekday), hour: Number(parts.hour) };
 }
 
+// One tick of the always-on scheduler: write the weekly family brief once per ISO week, on
+// the household's weekday and hour. Exported so the schedule can be tested with a fixed clock.
+export async function runScheduledBriefs({ store, runner, timezone, now = () => new Date() }) {
+  const written = [];
+  for (const h of store.all()) {
+    const at = now();
+    const { weekday, hour } = localClock(at, timezone);
+    const want = h.settings.weeklyDigest;
+    const key = weekKey(at, timezone);
+    if (weekday === want.weekday && hour >= want.hour && h.settings.lastDigestWeek !== key && h.notes.length) {
+      h.settings.lastDigestWeek = key;
+      try {
+        await runner.brief(h, "weekly-digest", { now: at, trigger: "schedule" });
+        written.push(key);
+        console.log(`[hearthnote] weekly brief written for ${key}`);
+      } catch (err) {
+        console.warn(`[hearthnote] weekly brief failed: ${err.message}`);
+      }
+      store.save(h);
+    }
+  }
+  return written;
+}
+
 export async function buildServer(config = loadConfig()) {
   config.secureCookies = process.env.HEARTH_SECURE_COOKIES === "1";
   const provider = createProvider(config.llm);
@@ -116,24 +140,7 @@ export async function buildServer(config = loadConfig()) {
   // weekday and hour (default Sunday 18:00 in the household's timezone).
   let timer = null;
   if (config.mode === "private") {
-    const tick = async () => {
-      for (const h of store.all()) {
-        const { weekday, hour } = localClock(new Date(), config.timezone);
-        const want = h.settings.weeklyDigest;
-        const key = weekKey(new Date(), config.timezone);
-        if (weekday === want.weekday && hour >= want.hour && h.settings.lastDigestWeek !== key && h.notes.length) {
-          h.settings.lastDigestWeek = key;
-          try {
-            await runner.brief(h, "weekly-digest", { trigger: "schedule" });
-            console.log(`[hearthnote] weekly brief written for ${key}`);
-          } catch (err) {
-            console.warn(`[hearthnote] weekly brief failed: ${err.message}`);
-          }
-          store.save(h);
-        }
-      }
-    };
-    timer = setInterval(tick, 5 * 60_000);
+    timer = setInterval(() => runScheduledBriefs({ store, runner, timezone: config.timezone }), 5 * 60_000);
     timer.unref();
   }
   server.on("close", () => timer && clearInterval(timer));

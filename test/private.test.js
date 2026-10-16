@@ -44,3 +44,25 @@ test("private mode needs the passcode and stores the household encrypted", async
   assert.equal(st.body.budget, null);
   assert.equal(st.body.notes.length, 1);
 });
+
+test("the always-on weekly brief runs once, on Sunday evening in the household's timezone", async () => {
+  const { runScheduledBriefs } = await import("../server/main.js");
+  const { SkillRunner } = await import("../server/care/skills.js");
+  const { createMockProvider } = await import("../server/llm/mock.js");
+  const { demoHousehold } = await import("../server/seed/demo.js");
+  const h = demoHousehold();
+  const store = { all: () => [h], save: () => {} };
+  const runner = new SkillRunner({ provider: createMockProvider({}) });
+  const at = (iso) => () => new Date(iso);
+  // Saturday 2026-10-17 20:00 Brussels: not the day.
+  assert.deepEqual(await runScheduledBriefs({ store, runner, timezone: "Europe/Brussels", now: at("2026-10-17T18:00:00Z") }), []);
+  // Sunday 2026-10-18 17:30 Brussels (15:30Z): too early.
+  assert.deepEqual(await runScheduledBriefs({ store, runner, timezone: "Europe/Brussels", now: at("2026-10-18T15:30:00Z") }), []);
+  // Sunday 18:05 Brussels: written once, marked as a scheduled brief.
+  assert.deepEqual(await runScheduledBriefs({ store, runner, timezone: "Europe/Brussels", now: at("2026-10-18T16:05:00Z") }), ["2026-W42"]);
+  assert.equal(h.briefs.at(-1).trigger, "schedule");
+  // Later the same evening: not again.
+  assert.deepEqual(await runScheduledBriefs({ store, runner, timezone: "Europe/Brussels", now: at("2026-10-18T20:00:00Z") }), []);
+  // Next Sunday (after the clocks go back to CET): the next week's brief.
+  assert.deepEqual(await runScheduledBriefs({ store, runner, timezone: "Europe/Brussels", now: at("2026-10-25T17:10:00Z") }), ["2026-W43"]);
+});
