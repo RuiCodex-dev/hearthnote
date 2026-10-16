@@ -1,0 +1,199 @@
+1
+00:00:00,470 --> 00:00:02,560
+When a parent starts needing care,
+
+2
+00:00:02,730 --> 00:00:05,470
+what the family knows about her starts to scatter.
+
+3
+00:00:07,390 --> 00:00:10,620
+Her daughter knows about the new blood pressure tablet.
+
+4
+00:00:10,880 --> 00:00:13,560
+The home nurse noticed her ankles swelling.
+
+5
+00:00:13,810 --> 00:00:16,030
+Her son saw her grip the stair rail with
+
+6
+00:00:16,050 --> 00:00:18,960
+both hands. Nobody puts it together,
+
+7
+00:00:19,090 --> 00:00:21,520
+and nobody remembers to ask the doctor.
+
+8
+00:00:23,240 --> 00:00:26,020
+Hearthnote is a private notebook for the whole care
+
+9
+00:00:26,040 --> 00:00:28,440
+circle. You write what happened,
+
+10
+00:00:28,590 --> 00:00:30,400
+the way you would text your brother.
+
+11
+00:00:31,730 --> 00:00:32,980
+The note is saved,
+
+12
+00:00:33,070 --> 00:00:35,080
+and checked for emergencies first,
+
+13
+00:00:35,180 --> 00:00:36,710
+with no model involved.
+
+14
+00:00:36,970 --> 00:00:39,330
+Then NVIDIA Nemotron 3 Super,
+
+15
+00:00:39,450 --> 00:00:41,370
+running on Nebius Token Factory,
+
+16
+00:00:41,490 --> 00:00:43,580
+files it: what was observed,
+
+17
+00:00:43,670 --> 00:00:46,850
+medication changes, to-dos, routines,
+
+18
+00:00:46,900 --> 00:00:48,480
+and things worth remembering.
+
+19
+00:00:49,970 --> 00:00:52,060
+Before anything leaves the server,
+
+20
+00:00:52,210 --> 00:00:56,110
+names, addresses and phone numbers are swapped for placeholders.
+
+21
+00:00:56,380 --> 00:00:59,300
+The model reasons about P1 and her daughter,
+
+22
+00:00:59,440 --> 00:01:01,100
+and never learns who they are.
+
+23
+00:01:01,340 --> 00:01:04,260
+Every request, and every word that was sent,
+
+24
+00:01:04,380 --> 00:01:05,910
+is on the privacy page.
+
+25
+00:01:07,430 --> 00:01:11,260
+Once a week, Nemotron 3 Ultra reads everything together,
+
+26
+00:01:11,380 --> 00:01:13,380
+and lines up dates across people:
+
+27
+00:01:13,570 --> 00:01:15,940
+the dizziness and the swollen ankles began in the
+
+28
+00:01:15,960 --> 00:01:17,800
+days after the new tablet.
+
+29
+00:01:18,060 --> 00:01:21,430
+Not a diagnosis, but a question for Tuesday's GP
+
+30
+00:01:21,450 --> 00:01:24,160
+appointment, with every line linked to the note it
+
+31
+00:01:24,180 --> 00:01:24,980
+came from.
+
+32
+00:01:26,690 --> 00:01:28,810
+Anyone can ask the log a question,
+
+33
+00:01:28,920 --> 00:01:31,160
+and get an answer from what was actually written
+
+34
+00:01:31,180 --> 00:01:31,780
+down.
+
+35
+00:01:33,110 --> 00:01:35,470
+Long-term memory works by consent:
+
+36
+00:01:35,670 --> 00:01:38,620
+Hearthnote proposes, a person confirms.
+
+37
+00:01:38,880 --> 00:01:41,890
+Routines and appointments go out as a private calendar
+
+38
+00:01:41,910 --> 00:01:44,900
+feed, so reminders reach everyone in the calendar they
+
+39
+00:01:44,920 --> 00:01:46,000
+already use.
+
+40
+00:01:47,530 --> 00:01:49,880
+And when a note describes an emergency,
+
+41
+00:01:50,020 --> 00:01:51,760
+the answer is immediate.
+
+42
+00:01:52,030 --> 00:01:54,310
+That is not a language model's job.
+
+43
+00:01:55,590 --> 00:01:58,150
+Two Nemotron tiers on Token Factory:
+
+44
+00:01:58,350 --> 00:02:00,110
+a fast one for every note,
+
+45
+00:02:00,250 --> 00:02:02,270
+a deep one for the weekly reasoning.
+
+46
+00:02:02,540 --> 00:02:04,210
+A privacy gate in front,
+
+47
+00:02:04,360 --> 00:02:07,280
+and an encrypted vault on the family's own server.
+
+48
+00:02:08,790 --> 00:02:11,910
+Hearthnote. The care circle's notebook.
+
+49
+00:02:12,180 --> 00:02:15,300
+Built by Rui Codex for the Nebius and NVIDIA
+
+50
+00:02:15,320 --> 00:02:17,010
+Global AI Hackathon.

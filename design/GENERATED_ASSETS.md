@@ -48,3 +48,10 @@ third-party or AI-generated music.
 
 The application, scripts and documents were written with an AI coding assistant (Claude Code)
 under the direction of Rui Codex, as permitted by the rules ("technical assistance").
+
+## Devpost gallery (2026-10-16)
+
+`docs/gallery/*.png` reuse the graded stills above (`hero`, `evening`, `walk`) as backgrounds; no
+new images were generated. Every screen in them is a real screenshot of the app running on
+Nemotron (`docs/screens/`), and every word is HTML typography (Newsreader, Atkinson Hyperlegible
+Next) rendered by `design/gallery.py`.

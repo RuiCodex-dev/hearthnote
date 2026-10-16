@@ -84,8 +84,32 @@ app that mixes fast and deep calls, which is exactly what the Best Apps track re
   to self-hosting the same model later (Nebius AI Cloud or their own hardware) without changing
   the prompts.
 
-## 8. Observations from the live run **(live)**
+## 8. Observations from the live runs **(live)**
 
-_To be completed by `npm run live-check` once the Token Factory key is active: latency per tier,
-JSON-schema adherence, whether `enable_thinking` was accepted, token counts, and anything that
-surprised us._
+Three runs against Token Factory on 15 and 16 October 2026: the live check (17 calls), the
+end-to-end QA over HTTP (10 calls, [`qa/e2e-live-2026-10-16.json`](qa/e2e-live-2026-10-16.json))
+and the recordings for the demo video. All of it together cost **USD 0.19** by the Token Factory usage
+page (16 October, 11:00 UTC: Ultra USD 0.17, Super USD 0.02), drawn from the USD 1 trial credit;
+the USD 25 promo balance was not touched. The deep tier is where the money goes.
+
+- **Nemotron 3 Super is fast enough to sit behind a "Save" button.** 15 note captures took
+  0.8 to 1.9 s each (about 1,000 prompt and 80 to 230 completion tokens), including a
+  4,000-character note at 1.2 s. With reasoning off, the family never waits.
+- **Nemotron 3 Ultra with reasoning on takes 8 to 31 s per brief** and writes 2,900 to 4,200
+  completion tokens for a one-page result, most of it reasoning. Reasoning is billed as
+  completion tokens, which is fair, but the docs should say so: at USD 3 per million output
+  tokens that is about one cent per weekly brief, which makes the deep tier affordable for a
+  weekly job and too slow for anything interactive. Splitting by tier is the right pattern and
+  worth showing in the docs.
+- **`response_format: json_schema` and `chat_template_kwargs.enable_thinking` were both
+  accepted on the first request** (probed on Super; the client's degrade path never fired).
+  Across all 27 structured calls the validator recorded **0 schema warnings** and **no repair
+  round was needed**. That is better adherence than we expected from an open model.
+- **Citations held up.** Every brief cited real note ids; the server drops any id that does not
+  exist, and in these runs it dropped none.
+- **Errors are clean.** A wrong key returns 401 in about 30 ms with a JSON body, so a client can
+  tell "your key" from "our outage" instantly.
+- **One surprise worth a docs line:** Super is conservative about long-term facts. Over twelve
+  notes it proposed only two durable facts (a coffee preference and a penicillin allergy) where a
+  rule-based extractor proposed many. For a consent-based memory that is the right behaviour,
+  but it changed how we seed the demo.

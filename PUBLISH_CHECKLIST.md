@@ -7,7 +7,7 @@ Nothing below has been done. Each numbered step needs the owner's approval, in t
 
 ## 0. Before every step
 
-- [ ] `npm test` passes (18 tests, offline).
+- [ ] `npm test` passes (28 tests, offline) and `npm run e2e` passes (40 checks, real API).
 - [ ] `npm run secret-scan` is clean (tracked + untracked files and the whole git history,
       checked against every value in `~/.ruicodex-keys/*.json` and common key shapes).
 - [ ] `git ls-files data .env design/gen video/work` prints nothing.
@@ -51,25 +51,43 @@ contains only fictional demo data.
 
 ## 3. Host the demo (owner approval B)
 
-Same pattern as Hostwise: a Docker container on the owner's server behind the existing reverse
-proxy, at **https://hearthnote.ruicodex.com**.
+Same pattern as Hostwise (`infra.json` -> `side_services.hostwise`): a Docker container on the
+Linux side-services host, nginx in front of it on an internal port, and an IIS site on the
+Windows web server that proxies the public hostname to it with a win-acme certificate.
+
+| Piece | Hostwise (model) | Hearthnote (proposed) |
+| --- | --- | --- |
+| Public URL | https://hostwise.ruicodex.com | **https://hearthnote.ruicodex.com** |
+| DNS (GoDaddy) | A `hostwise` -> 38.110.4.148, TTL 600 | A `hearthnote` -> 38.110.4.148, TTL 600 (snapshot the zone before and after) |
+| IIS site | `hostwise.ruicodex.com` (id 76), pool No Managed Code, `web.config` rewrite to `http://10.50.1.12:9084` | `hearthnote.ruicodex.com`, own pool, rewrite to `http://10.50.1.12:9085`; `appcmd backup` first |
+| TLS | win-acme, self-hosting http-01, store WebHosting | same, new renewal for `hearthnote.ruicodex.com` |
+| Linux host 10.50.1.12 | nginx `listen 9084` -> `127.0.0.1:8790`, `ufw allow 9084/tcp from 10.50.1.3` | nginx `listen 9085` -> `127.0.0.1:8792`, `ufw allow 9085/tcp from 10.50.1.3` (check both ports are free first) |
+| Container | `hostwise` (image `hostwise:current`), `/opt/hostwise/run.sh` | `hearthnote` (image `hearthnote:current`), `/opt/hearthnote/run.sh`, `--restart unless-stopped` |
+
+`/opt/hearthnote/run.sh` (keys come from a root-only env file on the host, never from the repo):
 
 ```sh
-docker build -t hearthnote:1 .
-docker run -d --name hearthnote --restart unless-stopped -p 127.0.0.1:8095:8080 \
-  -e HEARTH_MODE=demo -e LLM_PROVIDER=nebius -e TRUST_PROXY_HEADER=x-real-ip \
-  -e HEARTH_SECURE_COOKIES=1 -e NEBIUS_API_KEY="<type it, do not paste into a file>" \
-  hearthnote:1
+docker build -t hearthnote:current /opt/hearthnote/src
+docker rm -f hearthnote 2>/dev/null
+docker run -d --name hearthnote --restart unless-stopped -p 127.0.0.1:8792:8080   --env-file /opt/hearthnote/hearthnote.env   -e HEARTH_MODE=demo -e LLM_PROVIDER=nebius -e TRUST_PROXY_HEADER=x-real-ip   -e HEARTH_SECURE_COOKIES=1 hearthnote:current
+# hearthnote.env (chmod 600): NEBIUS_API_KEY=..., TAVILY_API_KEY=...
 ```
 
-- DNS: `hearthnote.ruicodex.com` -> the server; reverse-proxy rule to `127.0.0.1:8095` with
-  `X-Real-IP`; Let's Encrypt certificate.
-- Health: `curl https://hearthnote.ruicodex.com/api/health` must show `"provider":"nebius"`.
+- Copy only `package.json server skills public Dockerfile` to `/opt/hearthnote/src` (or clone the
+  public repo once it exists). No `node_modules`: the app has no dependencies.
+- Health: `curl https://hearthnote.ruicodex.com/api/health` must show `"provider":"nebius"`; then
+  run `npm run e2e` locally against nothing (it starts its own server) and click through the
+  hosted demo once (`python scripts/ui_check.py https://hearthnote.ruicodex.com qa/ui-hosted`;
+  about 4 model calls).
 - Budgets (defaults): 40 model calls per visitor sandbox, 1,500 per day, sandboxes expire after
-  3 hours. At roughly USD 0.002-0.02 per call the USD 25 credit covers the judging period
-  (until 15 December). Watch usage in the Token Factory console during judging.
-- Keep it running until at least **15 December 2026** (end of judging); the rules require the
-  demo to be available free of charge until then.
+  3 hours. A sandbox that uses all 40 calls costs about USD 0.15; the USD 25 credit covers
+  roughly 150 heavy visitors, far more than judging needs. Tavily: free plan, 1,000 credits a
+  month, and lookups are cached per medication name. Watch usage in the Token Factory console.
+- Keep it running until at least **15 December 2026, 21:00 Belgian time** (end of judging, 12:00
+  PT); the rules require free access until then. Removal afterwards mirrors Hostwise: `docker rm
+  -f hearthnote`, remove the nginx site and the ufw rule, remove the IIS site and pool, `wacs
+  --cancel` the renewal, delete the DNS record. Record all of it in `infra.json` ->
+  `side_services.hearthnote`.
 
 ## 4. YouTube (owner approval C)
 

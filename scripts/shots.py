@@ -24,7 +24,7 @@ with sync_playwright() as p:
     for view in ["today", "notes", "briefs", "memory", "privacy"]:
         page.goto(f"{base}/#{view}")
         page.wait_for_timeout(800)
-        page.screenshot(path=str(out / f"{view}.png"), full_page=True)
+        page.screenshot(path=str(out / f"{view}.png"))
 
     page.goto(f"{base}/#today")
     page.wait_for_timeout(500)
@@ -40,7 +40,14 @@ with sync_playwright() as p:
     page.click("button[data-action='run-skill'][data-id='weekly-digest']")
     page.wait_for_selector(".brief", timeout=240_000)
     page.wait_for_timeout(600)
-    page.screenshot(path=str(out / "brief.png"), full_page=True)
+    # Viewport shots only: the sidebar and composer are sticky, which a full-page capture
+    # stitches into the middle of the page.
+    page.evaluate("window.scrollTo(0, document.querySelector('.brief').getBoundingClientRect().top + window.scrollY - 24)")
+    page.wait_for_timeout(500)
+    page.screenshot(path=str(out / "brief.png"))
+    page.evaluate("window.scrollTo(0, document.querySelector('.brief .questions').getBoundingClientRect().top + window.scrollY - 200)")
+    page.wait_for_timeout(500)
+    page.screenshot(path=str(out / "brief-questions.png"))
 
     page.goto(f"{base}/#today")
     page.wait_for_timeout(400)

@@ -83,7 +83,7 @@ cheap, the careful reasoning goes to the big model.
 Requirements: Node.js 22+. No npm dependencies.
 
 ```sh
-npm test                       # 18 tests, offline
+npm test                       # 28 tests, offline (a local stand-in plays Token Factory for the failure cases)
 npm start                      # http://localhost:8080 - demo mode, offline mock if no key
 ```
 
@@ -124,9 +124,20 @@ docker run -p 8080:8080 --env-file .env -e HEARTH_MODE=private -v hn:/app/data h
 | `HEARTH_MODE` | `demo` | `demo` or `private` |
 | `HEARTH_VAULT_KEY`, `HEARTH_PASSCODE` | - | private mode |
 | `HEARTH_TIMEZONE` | `Europe/Brussels` | weekly brief schedule and calendar feed |
-| `TAVILY_API_KEY` | - | optional reference lookup for the medication check (only the medication name is sent) |
+| `TAVILY_API_KEY` | - | reference lookup for the medication check: Tavily search restricted to MedlinePlus, NHS, EMA, Mayo Clinic and drugs.com; only the medication name is sent |
 | `HEARTH_CALLS_PER_SESSION` / `HEARTH_CALLS_PER_DAY` | 40 / 1500 | demo budgets |
 | `TRUST_PROXY_HEADER`, `HEARTH_SECURE_COOKIES` | - | behind a TLS reverse proxy |
+
+### Testing
+
+| What | Command | Result (16 October 2026) |
+| --- | --- | --- |
+| Unit and API tests, offline | `npm test` | 28 / 28 |
+| End to end over HTTP against the real Token Factory API (every route, every skill, empty and 4,000-character input, red flags, an unanswerable question, a refused key) | `npm run e2e` | 40 / 40, 10 model calls, about USD 0.04 ([`qa/e2e-live-2026-10-16.json`](qa/e2e-live-2026-10-16.json)) |
+| Browser click-through of every control, desktop and phone, failing on any console error or 5xx | `python scripts/ui_check.py <url>` | 33 / 33 |
+| No secrets in the tree or the history | `npm run secret-scan`, `gitleaks git` | clean |
+
+QA log: [`qa/QA-2026-10-16.md`](qa/QA-2026-10-16.md).
 
 ## Architecture
 

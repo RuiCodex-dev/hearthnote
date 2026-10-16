@@ -97,6 +97,17 @@ async def main():
                     "-af", f"lowpass=f=1800,aecho=0.8:0.7:420|780:0.25|0.18,afade=t=in:d=3,afade=t=out:st={max(0, total - 4)}:d=4,volume=0.55",
                     "-ac", "2", str(AUD / "music.wav")], check=True)
     (WORK / "timing.json").write_text(json.dumps(timing, indent=2), encoding="utf-8")
+
+    # Sidecar captions for YouTube (the same cues are burned into the film).
+    def ts(x):
+        ms = int(round(x * 1000))
+        return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
+    cues = timing["captions"]
+    srt = []
+    for i, c in enumerate(cues, 1):
+        end = min(c["end"], cues[i]["start"] - 0.02) if i < len(cues) else c["end"]
+        srt.append(f"{i}\n{ts(c['start'])} --> {ts(end)}\n{c['text']}\n")
+    (ROOT / "hearthnote-demo.en.srt").write_text("\n".join(srt), encoding="utf-8", newline="\n")
     print(f"total {total}s, {len(timing['captions'])} captions")
     for s in timing["scenes"]:
         print(f"  {s['id']:<10} {s['start']:6.2f} -> {s['end']:6.2f}  voice {s['voice']:.2f}")

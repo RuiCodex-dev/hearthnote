@@ -20,6 +20,6 @@ seconds ("Nemotron 3 Ultra reasoned for 41 s"); a take shown faster than real ti
 speed chip ("1.3x"). No Veo or other generated video; the only generated visuals are the mood
 stills listed in `design/GENERATED_ASSETS.md`.
 
-`work/draft-mock.mp4` is a **draft rendered with the offline mock provider** (the sidebar says
-"Offline mock"). It exists to review pacing and must not be published; re-record with the real
-model first.
+`hearthnote-demo.mp4` (2:19, rendered 2026-10-16) is recorded on the real models: Nemotron 3
+Super and Ultra on Token Factory. The earlier mock-provider draft was replaced and must not be
+used. Captions: `hearthnote-demo.en.srt` (also burned in).

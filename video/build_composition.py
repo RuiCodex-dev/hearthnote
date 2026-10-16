@@ -278,11 +278,11 @@ body {{ margin: 0; background: #F4EFE6; }}
 .how {{ position: absolute; left: 160px; right: 160px; top: 210px; display: flex; align-items: center; gap: 0; }}
 .box {{ background: #FBF8F2; border: 1px solid #E2DACB; border-radius: 26px; padding: 40px 44px; box-shadow: 0 30px 70px -40px rgba(34,48,47,.45); }}
 .box .tag {{ display: block; font-size: 22px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #4F7259; margin-bottom: 18px; }}
-.home {{ width: 560px; }}
+.home {{ width: 500px; }}
 .home ul {{ margin: 0; padding-left: 28px; font: 400 33px/1.6 "Newsreader", serif; }}
 .wire {{ flex: 1; height: 4px; background: #A9462F; position: relative; margin: 0 10px; }}
 .wire span {{ position: absolute; left: 50%; top: -58px; transform: translateX(-50%); white-space: nowrap; font: 600 22px/1 ui-monospace, Consolas, monospace; color: #A9462F; background: #F4EFE6; padding: 4px 8px; }}
-.tf {{ width: 600px; background: #26303D; border-color: #26303D; color: #E9E4DA; }}
+.tf {{ width: 540px; background: #26303D; border-color: #26303D; color: #E9E4DA; }}
 .tf .tag {{ color: #D98C72; }}
 .tier {{ border-top: 1px solid rgba(255,255,255,.14); padding: 20px 0; }}
 .tier b {{ display: block; font: 500 40px/1.15 "Newsreader", serif; color: #FBF8F2; }}
