@@ -17,3 +17,4 @@ video/hyperframes/.hyperframes/
 qa/e2e-live-mock.json
 qa/ui/*.png
 qa/logs/
+qa/ui-hosted/*.png

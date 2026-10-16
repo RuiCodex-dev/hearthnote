@@ -1,5 +1,7 @@
 # Devpost submission: Hearthnote
 
+**Submitted 16 October 2026: <https://devpost.com/software/hearthnote>** (submission 1240452; editable until the deadline).
+
 Copy-ready text for the "Enter a submission" form of the Nebius x NVIDIA Global AI Hackathon.
 Deadline: **Friday 30 October 2026, 10:00 PDT = 18:00 Belgian time (CET; clocks go back on
 25 October)**.
@@ -9,9 +11,9 @@ Deadline: **Friday 30 October 2026, 10:00 PDT = 18:00 Belgian time (CET; clocks 
 | Project name | Hearthnote |
 | Tagline (elevator pitch, max 200 characters) | A private notebook for families caring for someone at home. Nemotron files every note, writes the weekly brief and asks the GP's questions, without learning anyone's name. |
 | Track | **Personal AI Track** |
-| Demo URL | https://hearthnote.ruicodex.com *(after hosting is approved; no login, fictional household)* |
-| Repository | https://github.com/RuiCodex-dev/hearthnote *(after publishing is approved; MIT licence)* |
-| Video | YouTube link *(after upload is approved)*, 2:19 |
+| Demo URL | https://hearthnote.ruicodex.com *(no login, fictional household)* |
+| Repository | https://github.com/RuiCodex-dev/hearthnote *(MIT licence)* |
+| Video | https://www.youtube.com/watch?v=oRDZvi5sso0 (2:19) |
 | Built with | nvidia-nemotron, nemotron-3-super, nemotron-3-ultra, nebius-token-factory, tavily, node.js, javascript, html5, css3, icalendar, aes-256-gcm, docker, playwright, hyperframes |
 | City event | none attended |
 | Existed before the submission period? | No. Written from scratch in October 2026 for this hackathon. |

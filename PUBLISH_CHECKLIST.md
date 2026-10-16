@@ -3,7 +3,14 @@
 Deadline: **Friday 30 October 2026, 10:00 PDT = 18:00 Belgian time (CET; clocks go back on
 25 October)**. Target: everything live by **Wednesday 28 October**.
 
-Step 1 is done. Steps 2-5 each need the owner's approval, in this order.
+**All five steps are done (16 October 2026, owner approval "hepsini yap").**
+
+- Repository: <https://github.com/RuiCodex-dev/hearthnote> (public, MIT, topics set)
+- Demo: <https://hearthnote.ruicodex.com> (keep running until 15 December 2026, 21:00 Belgian time)
+- Video: <https://www.youtube.com/watch?v=oRDZvi5sso0> (Public)
+- Devpost: <https://devpost.com/software/hearthnote> (submission 1240452, status Submitted)
+
+Hosting details and removal steps are in `infra.json` -> `side_services.hearthnote` (keys folder, not in the repo).
 
 ## 0. Before every step
 

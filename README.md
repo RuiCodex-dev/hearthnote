@@ -9,6 +9,10 @@ numbers are withheld before any text leaves the family's server.
 Built from scratch for the [Nebius x NVIDIA Global AI Hackathon](https://nebiusglobalaihackathon.devpost.com/),
 **Personal AI track**. MIT licensed. Made by [Rui Codex](https://ruicodex.com), Belgium.
 
+**Live demo** (no login, fictional household): <https://hearthnote.ruicodex.com> -
+**Video** (2:19): <https://www.youtube.com/watch?v=oRDZvi5sso0> -
+**Devpost**: <https://devpost.com/software/hearthnote>
+
 ![Today view](docs/screens/today.png)
 
 ## The problem

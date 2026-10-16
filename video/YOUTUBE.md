@@ -1,10 +1,15 @@
-# YouTube upload (owner approval needed)
+# YouTube upload
+
+**Published 16 October 2026 (Public): <https://www.youtube.com/watch?v=oRDZvi5sso0>**, with the
+English captions, the custom thumbnail, *not made for kids*, and AI use disclosed as *Yes*.
+The title below was shortened by one character pair ("Hearthnote -" became "Hearthnote:")
+because YouTube allows at most 100 characters.
 
 **File:** `video/hearthnote-demo.mp4` (1920x1080, 30 fps, 2:19, H.264 + AAC)
 **Captions:** upload `video/hearthnote-demo.en.srt` as English subtitles (they are also burned in).
 **Thumbnail:** `video/thumbnail.png` (1280x720)
 
-**Title:** Hearthnote - a private notebook for families caring at home (NVIDIA Nemotron on Nebius Token Factory)
+**Title:** Hearthnote: a private notebook for families caring at home (NVIDIA Nemotron on Nebius Token Factory)
 
 **Visibility:** Public (the rules require a public YouTube video). **Category:** Science & Technology.
 **Made for kids:** No. **Altered or synthetic content:** No realistic people or events are
