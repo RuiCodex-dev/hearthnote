@@ -82,6 +82,11 @@
       "detail": ""
     },
     {
+      "name": "memory action fact-yes",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "memory action fact-no",
       "ok": true,
       "detail": ""

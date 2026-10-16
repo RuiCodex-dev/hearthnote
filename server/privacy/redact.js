@@ -64,7 +64,10 @@ export function createRedactor({ people = [], privateTerms = [] } = {}) {
     for (const t of termRules) map.set(t.token, t.original);
     for (const f of found) if (f.original) map.set(f.token, f.original);
     const re = /\[(?:P\d+|PRIVATE\d+|EMAIL\d+|IBAN\d+|NATIONAL_ID\d+|PHONE\d+|DOB\d+|ADDRESS\d+|[A-Z_]+\d*)\]/g;
-    const restoreString = (s) => s.replace(re, (tok) => (map.has(tok) ? map.get(tok) : tok));
+    // Models sometimes drop the brackets ("Bram - P3", "assignee": "P2"); a bare token is
+    // restored only when it names a known person or private word.
+    const bare = /(?<![\p{L}\p{N}\[])(P\d+|PRIVATE\d+)(?![\p{L}\p{N}\]])/gu;
+    const restoreString = (s) => s.replace(re, (tok) => (map.has(tok) ? map.get(tok) : tok)).replace(bare, (tok) => (map.has(`[${tok}]`) ? map.get(`[${tok}]`) : tok));
     const restore = (v) => {
       if (typeof v === "string") return restoreString(v);
       if (Array.isArray(v)) return v.map(restore);

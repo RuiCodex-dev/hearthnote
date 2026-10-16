@@ -96,6 +96,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .chip.ask { background: var(--wash-clay); border-color: transparent; }
 .cite { font: 600 12px/1 var(--sans); padding: 3px 7px; border-radius: 6px; border: 1px solid var(--rule); background: var(--paper); color: var(--slate); cursor: pointer; margin-left: 4px; vertical-align: 2px; }
 .cite:hover { color: var(--ink); border-color: var(--slate); }
+.cite.ref { text-decoration: none; color: var(--ink); border-color: var(--wash-sage); background: var(--wash-sage); display: inline-block; }
 
 /* Cards */
 .card { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 18px 20px; }

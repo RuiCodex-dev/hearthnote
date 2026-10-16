@@ -117,3 +117,11 @@ test("the demo opens with at least one fact waiting for a person's OK", async ()
     assert.ok(h.memory.some((f) => f.status === "confirmed"), `no confirmed fact on ${day}`);
   }
 });
+
+test("re-identification also restores tokens the model wrote without brackets", () => {
+  const r = createRedactor({ people: [{ token: "P1", names: ["Mireille"], role: "mum" }, { token: "P3", names: ["Bram"], role: "son" }], privateTerms: [{ text: "Dr. Claes", token: "PRIVATE1" }] });
+  const restore = r.restorer([]);
+  assert.equal(restore("Fix the rug - P3 (2026-10-08)"), "Fix the rug - Bram (2026-10-08)");
+  assert.equal(restore({ assignee: "P3", text: "[P1] sees PRIVATE1 on Tuesday" }).text, "Mireille sees Dr. Claes on Tuesday");
+  assert.equal(restore("P9 is unknown, MP3 and P1x stay"), "P9 is unknown, MP3 and P1x stay");
+});

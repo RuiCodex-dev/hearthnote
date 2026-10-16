@@ -217,7 +217,9 @@ function viewNotes() {
 
 function briefHtml(b) {
   const flagIcon = { good: "leaf", watch: "eye", ask_clinician: "question", none: "notes" };
-  const citeBtns = (cites) => (cites || []).map((c) => `<button class="cite" data-cite="${esc(c)}">${esc(c)}</button>`).join("");
+  // N-ids open the family's note; S-ids are public reference pages from the lookup.
+  const ref = (id) => (b.references || []).find((r) => r.id === id);
+  const citeBtns = (cites) => (cites || []).map((c) => (ref(c) ? `<a class="cite ref" href="${esc(ref(c).url)}" target="_blank" rel="noopener noreferrer" title="${esc(ref(c).title)}">${esc(c)}</a>` : `<button class="cite" data-cite="${esc(c)}">${esc(c)}</button>`)).join("");
   const br = b.brief;
   return `<article class="card brief" id="brief-${b.id}">
     <div class="brief-meta"><span>${esc(b.title)}</span><span>${esc(fmt(b.at, { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }))}</span>${b.trigger === "schedule" ? "<span>written automatically</span>" : ""}</div>
