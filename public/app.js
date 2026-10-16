@@ -236,10 +236,10 @@ function viewBriefs() {
   return `<p class="eyebrow">Skills</p><h1 class="page-title">Briefs the family <em>can act on</em></h1>
     <p class="lede">Each skill is a small recipe: what to read, which model to use, what to write. Quick ones run on Nemotron Super; the weekly reasoning runs on Nemotron Ultra.</p>
     <div class="skills">
-      ${S.skills.map((k) => `<button class="card skill ${busy.has(k.id) ? "running" : ""}" data-action="run-skill" data-id="${k.id}" ${busy.has(k.id) ? "disabled" : ""}>
+      ${S.skills.map((k) => `<div class="skill-cell"><button class="card skill ${busy.has(k.id) ? "running" : ""}" data-action="run-skill" data-id="${k.id}" ${busy.has(k.id) ? "disabled" : ""}>
         <h3>${esc(k.title)}</h3><p>${esc(k.description)}</p>
-        <span class="tier">${icon("chip")}${busy.has(k.id) ? `Writing on ${esc(shortModel(tierModel(k.tier)))}...` : `${esc(shortModel(tierModel(k.tier)))}${k.tool ? " + reference lookup" : ""}${k.schedule ? " · also runs every Sunday" : ""}`}${!k.builtin ? ` · <span data-action="delete-skill" data-id="${k.id}" role="button" tabindex="0">remove</span>` : ""}</span>
-      </button>`).join("")}
+        <span class="tier">${icon("chip")}${busy.has(k.id) ? `Writing on ${esc(shortModel(tierModel(k.tier)))}...` : `${esc(shortModel(tierModel(k.tier)))}${k.tool ? " + reference lookup" : ""}${k.schedule ? " · also runs every Sunday" : ""}`}</span>
+      </button>${!k.builtin && !busy.has(k.id) ? `<button type="button" class="skill-remove" data-action="delete-skill" data-id="${k.id}" aria-label="Remove the skill ${esc(k.title)}">Remove</button>` : ""}</div>`).join("")}
       <button class="card skill add" data-action="new-skill">${icon("plus")}<h3>Write your own skill</h3><p>"Summarise mobility for the physiotherapist", "A note for the neighbour who has a key"...</p></button>
     </div>
     ${shown ? briefHtml(shown) : `<div class="empty card"><img src="/assets/img/evening.webp" alt="" width="1368" height="760"><p>No briefs yet. Run the weekly brief to see what the last seven days add up to.</p></div>`}
@@ -405,6 +405,8 @@ function highlightTokens(text) {
 
 // ---------- events ----------
 document.addEventListener("click", async (e) => {
+  // The skip link moves focus without touching the hash, which is the router's.
+  if (e.target.closest("a.skip")) { e.preventDefault(); $("#main").focus(); return; }
   const cite = e.target.closest("[data-cite]");
   if (cite) { e.preventDefault(); return showCite(cite.dataset.cite); }
   const openB = e.target.closest("[data-open-brief]");

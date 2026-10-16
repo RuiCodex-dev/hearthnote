@@ -153,6 +153,11 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .skill p { margin: 0; font-size: 14.5px; color: var(--slate); }
 .skill .tier { margin-top: auto; display: flex; gap: 6px; align-items: center; font-size: 12.5px; color: var(--slate); }
 .skill.running { opacity: .7; cursor: progress; }
+.skill-cell { position: relative; display: flex; }
+.skill-cell > .skill { flex: 1; }
+.skill-remove { position: absolute; top: 12px; right: 12px; font: inherit; font-size: 12.5px; color: var(--slate); background: transparent; border: 1px solid var(--rule); border-radius: 999px; padding: 3px 10px; cursor: pointer; }
+.skill-remove:hover { color: var(--ink); border-color: var(--slate); }
+.skill-remove:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
 .skill.add { border-style: dashed; align-items: flex-start; justify-content: center; color: var(--slate); }
 .brief { padding: 28px 32px; margin-top: 18px; }
 .brief-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 13px; color: var(--slate); margin-bottom: 10px; }

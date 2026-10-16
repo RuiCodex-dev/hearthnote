@@ -1,0 +1,171 @@
+{
+  "base": "http://127.0.0.1:8732",
+  "results": [
+    {
+      "name": "view today renders",
+      "ok": true,
+      "detail": "Mireille's Friday"
+    },
+    {
+      "name": "view notes renders",
+      "ok": true,
+      "detail": "Every note, as written"
+    },
+    {
+      "name": "view briefs renders",
+      "ok": true,
+      "detail": "Briefs the family can act on"
+    },
+    {
+      "name": "view memory renders",
+      "ok": true,
+      "detail": "What Hearthnote keeps"
+    },
+    {
+      "name": "view privacy renders",
+      "ok": true,
+      "detail": "What left this server"
+    },
+    {
+      "name": "all images load",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "empty note is not saved",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a note is filed and shows its receipt",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "emergency advice shows 112",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "empty question is not sent",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a question is answered with citations",
+      "ok": true,
+      "detail": "The closest note (N14) says: \"She fell on the stairs and hit her head, there is a cut.\"\n\nOffline mock: no language model"
+    },
+    {
+      "name": "a citation opens the note it points to",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a built-in skill writes a brief",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a custom skill can be written",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "the custom skill runs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "the custom skill can be deleted",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "memory action fact-no",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "memory action routine-no",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a member can be added",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "the calendar link works",
+      "ok": true,
+      "detail": "http://127.0.0.1:8732/cal/<token>.ics"
+    },
+    {
+      "name": "a private word can be added",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "a task can be ticked off",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "the outbound prompt shows tokens, not names",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "the first Tab lands on the skip link",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "the skip link focuses the content and stays on the view",
+      "ok": true,
+      "detail": "#briefs"
+    },
+    {
+      "name": "Start over restores the demo",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "phone today: no horizontal scroll",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "phone notes: no horizontal scroll",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "phone briefs: no horizontal scroll",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "phone memory: no horizontal scroll",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "phone privacy: no horizontal scroll",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "phone write: no horizontal scroll",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "no console errors, page errors, failed requests or 5xx",
+      "ok": true,
+      "detail": "[]"
+    }
+  ],
+  "problems": []
+}
