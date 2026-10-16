@@ -3,7 +3,7 @@
 Deadline: **Friday 30 October 2026, 10:00 PDT = 18:00 Belgian time (CET; clocks go back on
 25 October)**. Target: everything live by **Wednesday 28 October**.
 
-Nothing below has been done. Each numbered step needs the owner's approval, in this order.
+Step 1 is done. Steps 2-5 each need the owner's approval, in this order.
 
 ## 0. Before every step
 
@@ -12,7 +12,7 @@ Nothing below has been done. Each numbered step needs the owner's approval, in t
       checked against every value in `~/.ruicodex-keys/*.json` and common key shapes).
 - [ ] `git ls-files data .env design/gen video/work` prints nothing.
 
-## 1. Token Factory key (owner: add the card)
+## 1. Token Factory key and real-model video - DONE (15-16 October 2026, see qa/QA-2026-10-16.md)
 
 1. Owner signs in to <https://tokenfactory.nebius.com> (Google, info@ruicodex.com), completes
    billing (card for the $0 authorisation), and redeems the USD 25 promo code from the e-mail
